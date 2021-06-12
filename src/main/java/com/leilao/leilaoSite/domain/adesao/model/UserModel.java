@@ -16,21 +16,14 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 @Entity
-//herança de admin
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "tipodeconta")
-@DiscriminatorValue(value = "normal")
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "TB_USER")
 public class UserModel implements Serializable {
 
@@ -56,9 +49,6 @@ public class UserModel implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@Column(name = "BIRTHDAY")
 	private Date birthday;
-
-	@Column(name = "TIPODECONTA")
-	private String tipoDeConta;
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name =  "id")
@@ -191,9 +181,5 @@ public class UserModel implements Serializable {
 
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
-	}
-
-	public static void main(String[] args) {
-		
 	}
 }
