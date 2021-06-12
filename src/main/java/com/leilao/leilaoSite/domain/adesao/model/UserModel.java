@@ -3,12 +3,20 @@ package com.leilao.leilaoSite.domain.adesao.model;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -19,6 +27,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+//herança de admin
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipodeconta")
+@DiscriminatorValue(value = "normal")
 @Table(name = "TB_USER")
 public class UserModel implements Serializable {
 
@@ -44,6 +56,13 @@ public class UserModel implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@Column(name = "BIRTHDAY")
 	private Date birthday;
+
+	@Column(name = "TIPODECONTA")
+	private String tipoDeConta;
+
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name =  "id")
+	private List<ModeloProduto> compras;
 
 	public UserModel(Long id, String username, String email, String password, String cPF, Date birthday) {
 		this.id = id;
@@ -174,5 +193,7 @@ public class UserModel implements Serializable {
 		this.birthday = birthday;
 	}
 
-	
+	public static void main(String[] args) {
+		
+	}
 }
