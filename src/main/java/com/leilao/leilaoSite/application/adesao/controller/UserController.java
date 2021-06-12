@@ -7,10 +7,9 @@ import java.util.List;
 
 import com.leilao.leilaoSite.application.adesao.service.UserServiceImpl;
 import com.leilao.leilaoSite.domain.adesao.model.UserModel;
-import com.leilao.leilaoSite.infrastructure.persistence.repository.user.UserRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,8 +31,7 @@ public class UserController {
     }
 
     @PostMapping("/{username}")
-    public UserModel getUserByUsername(@RequestBody String username) {
-        System.out.println(username);
+    public UserModel getUserByUsername(@PathVariable String username) {
         return userServiceImpl.getUserByUsername(username);
     }
 

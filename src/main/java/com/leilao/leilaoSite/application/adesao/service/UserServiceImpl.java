@@ -4,11 +4,9 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
-
 import com.leilao.leilaoSite.domain.adesao.model.UserModel;
 import com.leilao.leilaoSite.domain.adesao.service.UserService;
 import com.leilao.leilaoSite.infrastructure.persistence.repository.user.UserRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
