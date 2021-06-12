@@ -1,4 +1,4 @@
-package com.leilao.leilao;
+package com.leilao.leilaoSite;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
