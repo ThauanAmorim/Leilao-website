@@ -1,6 +1,7 @@
 package com.leilao.leilaoSite.application.adesao.service;
 
 import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
@@ -27,9 +28,9 @@ public class UserServiceImpl implements UserService{
     }
     
     private String shar256(String senha) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-        MessageDigest algorithm = MessageDigest.getInstance("SHA-256");
-        byte messageDigest[] = algorithm.digest(senha.getBytes("UTF-8"));
-        return messageDigest.toString();
+        MessageDigest messageDigest =  MessageDigest.getInstance("SHA-256");
+        messageDigest.update(senha.getBytes("UTF-8"));
+        return new BigInteger(1, messageDigest.digest()).toString(16);
     }
 
     @Override
