@@ -8,6 +8,8 @@ import java.util.List;
 import com.leilao.leilaoSite.application.adesao.service.UserServiceImpl;
 import com.leilao.leilaoSite.domain.adesao.model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,20 +25,35 @@ public class UserController {
     private UserServiceImpl userServiceImpl;
 
     @PostMapping
-    public UserModel salvarUser(@RequestBody UserModel user) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+    public ResponseEntity<UserModel> salvarUser(@RequestBody UserModel user) throws NoSuchAlgorithmException, UnsupportedEncodingException {
         user.setBirthday(new Date(System.currentTimeMillis()));
-
         userServiceImpl.criptografarSenha(user);
-        return userServiceImpl.salvarUser(user);
+        UserModel userSalvo = userServiceImpl.salvarUser(user);
+
+        if(userSalvo != null) {
+            return ResponseEntity.status(HttpStatus.CREATED).body(userSalvo);
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
     }
 
-    @PostMapping("/{username}")
-    public UserModel getUserByUsername(@PathVariable String username) {
-        return userServiceImpl.getUserByUsername(username);
+    @GetMapping("/{username}")
+    public ResponseEntity<UserModel> getUserByUsername(@PathVariable String username) {
+        UserModel userModel = userServiceImpl.getUserByUsername(username);
+
+        if(userModel != null) {
+            return ResponseEntity.status(HttpStatus.OK).body(userModel);
+        }
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
     }
 
     @GetMapping
-    public List<UserModel> getTodosUsers() {
-        return userServiceImpl.getAllUsers();
+    public ResponseEntity<List<UserModel>> getTodosUsers() {
+        List<UserModel> userModels = userServiceImpl.getAllUsers();
+
+        if(!userModels.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.OK).body(userModels);
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
     }
 }
