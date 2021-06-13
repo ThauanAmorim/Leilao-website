@@ -1,10 +1,11 @@
 package com.leilao.leilaoSite.application.adesao.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.websocket.server.PathParam;
 
-import com.leilao.leilaoSite.domain.adesao.model.ModeloAdmin;
+import com.leilao.leilaoSite.application.adesao.service.AdminServiceImpl;
 import com.leilao.leilaoSite.domain.adesao.model.UserModel;
 import com.leilao.leilaoSite.infrastructure.persistence.repository.admin.AdminRepository;
 import com.leilao.leilaoSite.infrastructure.persistence.repository.user.UserRepository;
@@ -22,34 +23,25 @@ import org.springframework.web.bind.annotation.RestController;
 public class AdminController {
 
     @Autowired
-    private AdminRepository adminRepository;
-
-    @Autowired
-    private UserRepository userRepository;
+    private AdminServiceImpl adminServiceImpl;
 
     @GetMapping
-    public List<ModeloAdmin> pegarTodosOsAdmins() {
-        return adminRepository.findAll();
+    public List<UserModel> pegarTodosOsAdmins() {
+        return adminServiceImpl.getAllAdmins();
     }
 
-    @PostMapping("/{id}")
-    public ModeloAdmin salvarAdmin(@PathVariable Long id) {
-        UserModel userModel = userRepository.getById(id);
-
-        if(userModel != null) {
-            ModeloAdmin adminModel = new ModeloAdmin();
-            adminModel.setId(id);
-            return adminRepository.save(adminModel);
-        }
-        return null;
+    @GetMapping("/{username}")
+    public UserModel pegarAdminPeloId(@PathVariable String username) {
+        return adminServiceImpl.getAdminByUsername(username);
     }
 
-    @PostMapping
-    public ModeloAdmin salvarAdmin(@RequestBody ModeloAdmin modeloAdmin) {
-        if(modeloAdmin != null) {
-            adminRepository.save(modeloAdmin);
-            return modeloAdmin;
-        }
-        return null;
+    @GetMapping("/salvar/{username}")
+    public UserModel salvarAdmin(@PathVariable String username) {
+        return adminServiceImpl.saveAdminByUsername(username);
+    }
+
+    @PostMapping("/salvar")
+    public UserModel salvarAdmin(@RequestBody UserModel userModel) {
+        return adminServiceImpl.saveAdmin(userModel);
     }
 }

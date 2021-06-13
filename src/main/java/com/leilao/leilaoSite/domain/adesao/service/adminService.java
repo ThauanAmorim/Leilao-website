@@ -2,12 +2,15 @@ package com.leilao.leilaoSite.domain.adesao.service;
 
 import java.util.List;
 
-import com.leilao.leilaoSite.domain.adesao.model.ModeloAdmin;
+import com.leilao.leilaoSite.domain.adesao.model.UserModel;
 
 public interface adminService {
-    public ModeloAdmin getAdminByUsername(String username);
+    public List<UserModel> getAllAdmins();
 
-    public ModeloAdmin salvarUser(ModeloAdmin modeloAdmin);
+    public UserModel getAdminByUsername(String username);
 
-    public List<ModeloAdmin> getAllUsers();
+    public UserModel saveAdmin(UserModel userModel);
+
+    public UserModel saveAdminByUsername(String username);
+
 }

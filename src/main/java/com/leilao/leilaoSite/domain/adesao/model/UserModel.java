@@ -30,7 +30,7 @@ public class UserModel implements Serializable {
 	private static final long serialVersionUID = -6518853480190451215L;
 
 	@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "ID")
 	private Long id;
 
@@ -45,6 +45,9 @@ public class UserModel implements Serializable {
 
 	@Column(name = "CPF")
 	private String CPF;
+
+	@Column(name = "IS_ADMIN")
+	private boolean isAdmin;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name = "BIRTHDAY")
@@ -175,6 +178,14 @@ public class UserModel implements Serializable {
 		CPF = cPF;
 	}
 
+	public boolean getIsAdmin() {
+		return isAdmin;
+	}
+
+	public void setIsAdmin(boolean status) {
+		isAdmin = status;
+	}
+	
 	public Date getBirthday() {
 		return birthday;
 	}
