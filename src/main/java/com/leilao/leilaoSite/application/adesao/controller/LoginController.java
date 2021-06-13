@@ -9,7 +9,6 @@ import com.leilao.leilaoSite.presentation.authentication.dto.LoginDTO;
 import com.leilao.leilaoSite.presentation.authentication.exception.CredenciaisInvalidasException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

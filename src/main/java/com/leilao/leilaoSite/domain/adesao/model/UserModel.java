@@ -30,7 +30,7 @@ public class UserModel implements Serializable {
 	private static final long serialVersionUID = -6518853480190451215L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
 	private Long id;
 
