@@ -6,7 +6,8 @@ import java.util.Date;
 import java.util.List;
 
 import com.leilao.leilaoSite.application.adesao.service.UserServiceImpl;
-import com.leilao.leilaoSite.domain.adesao.model.UserModel;
+import com.leilao.leilaoSite.domain.leilao.model.UserModel;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

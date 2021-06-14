@@ -2,8 +2,8 @@ package com.leilao.leilaoSite.application.adesao.service;
 
 import java.util.List;
 
-import com.leilao.leilaoSite.domain.adesao.model.UserModel;
-import com.leilao.leilaoSite.domain.adesao.service.adminService;
+import com.leilao.leilaoSite.domain.leilao.model.UserModel;
+import com.leilao.leilaoSite.domain.leilao.service.adminService;
 import com.leilao.leilaoSite.infrastructure.persistence.repository.admin.AdminRepository;
 import com.leilao.leilaoSite.infrastructure.persistence.repository.user.UserRepository;
 

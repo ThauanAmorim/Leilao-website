@@ -1,4 +1,4 @@
-package com.leilao.leilaoSite.domain.adesao.model;
+package com.leilao.leilaoSite.domain.leilao.model;
 
 import java.io.Serializable;
 
@@ -23,14 +23,17 @@ public class ModeloProduto implements Serializable{
     @Column(name = "DESCRIPTION")
     private String descricao;
 
+    @Column(name = "PRECO")
+    private float preco;
 
     public ModeloProduto(){
 
     }
 
-    public ModeloProduto(String nome, String descricao){
+    public ModeloProduto(String nome, String descricao, float preco){
         this.nome = nome;
         this.descricao = descricao;
+        this.preco = preco;
     }
 
     @Override
@@ -69,5 +72,13 @@ public class ModeloProduto implements Serializable{
 
     public void setDescricao(String descricao){
         this.descricao = descricao;
+    }
+
+    public float getPreco() {
+        return preco;
+    }
+
+    public void setPreco(float preco) {
+        this.preco = preco;
     }
 }

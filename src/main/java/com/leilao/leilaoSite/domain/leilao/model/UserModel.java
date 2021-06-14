@@ -1,4 +1,4 @@
-package com.leilao.leilaoSite.domain.adesao.model;
+package com.leilao.leilaoSite.domain.leilao.model;
 
 import java.io.Serializable;
 import java.util.Calendar;
@@ -7,8 +7,6 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +14,6 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -55,16 +52,7 @@ public class UserModel implements Serializable {
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name =  "id")
-	private List<ModeloProduto> compras;
-
-	public UserModel(Long id, String username, String email, String password, String cPF, Date birthday) {
-		this.id = id;
-		this.username = username;
-		this.email = email;
-		this.password = password;
-		CPF = cPF;
-		this.birthday = birthday;
-	}
+	private List<ModeloProduto> produtosAdquiridos;
 
 	public UserModel() {
 	}
@@ -193,4 +181,17 @@ public class UserModel implements Serializable {
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
+
+	public List<ModeloProduto> getProdutosAdquiridos() {
+		return produtosAdquiridos;
+	}
+
+	public void setProdutosAdquiridos(List<ModeloProduto> produtosAdquiridos) {
+		this.produtosAdquiridos = produtosAdquiridos;
+	}
+
+	public void addProduto(ModeloProduto modeloProduto) {
+		this.produtosAdquiridos.add(modeloProduto);
+	}
+	
 }
