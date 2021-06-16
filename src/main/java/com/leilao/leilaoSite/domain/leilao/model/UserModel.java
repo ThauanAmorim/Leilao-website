@@ -191,8 +191,8 @@ public class UserModel implements Serializable {
 		return produtosArrematado;
 	}
 
-	public void setProdutosArrematado(List<ProdutoModel> produtosAdquiridos) {
-		this.produtosArrematado = produtosAdquiridos;
+	public void setProdutosArrematado(List<ProdutoModel> produtosArrematados) {
+		this.produtosArrematado = produtosArrematados;
 	}
 
 	public void addProdutoArrematado(ProdutoModel modeloProduto) {

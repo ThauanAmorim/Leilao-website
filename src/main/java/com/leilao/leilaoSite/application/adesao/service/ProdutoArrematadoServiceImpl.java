@@ -10,8 +10,11 @@ import com.leilao.leilaoSite.infrastructure.persistence.repository.user.UserRepo
 import com.leilao.leilaoSite.presentation.produto.dto.ProdutoDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ProdutoArrematadoServiceImpl implements ProdutoService {
+
     @Autowired
     private ProdutoArrematadoRepository produtoArrematadoRepository;
 
@@ -20,24 +23,26 @@ public class ProdutoArrematadoServiceImpl implements ProdutoService {
 
     @Override
     public ProdutoModel findProductByName(String name) {
-        // TODO Auto-generated method stub
-        return null;
+        return this.produtoArrematadoRepository.findProductByName(name);
     }
 
     @Override
     public List<ProdutoModel> getAllProduto(String name) {
-        // TODO Auto-generated method stub
-        return null;
+        return produtoArrematadoRepository.findAll();
     }
 
     @Override
     public ProdutoModel salvarProduto(ProdutoDTO produtodto) {
         ProdutoModel produtoModel = produtoArrematadoRepository.findProductByName(produtodto.getNome());
-        UserModel userModel = userRepository.findByUsername(produtodto.getUsername());
+        if(produtoModel!=null){
+            UserModel userModel = userRepository.findByUsername(produtodto.getUsername());
+    
+            userModel.addProdutoArrematado(produtoModel);
+            
+            userRepository.update(userModel.getProdutosArrematado(), userModel.getId(),userModel.getUsername());
+            return produtoModel;
+        }
 
-        userModel.addProdutoArrematado(produtoModel);
-
-        userRepository.update(userModel.getProdutosArrematado(), userModel.getId());
         return null;
     }
     

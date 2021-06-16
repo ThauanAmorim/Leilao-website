@@ -34,11 +34,11 @@ public class ProdutoLeiloarServiceImpl implements ProdutoService{
     @Override
     public ProdutoModel salvarProduto(ProdutoDTO produtodto) {
         ProdutoModel produto = new ProdutoModel(produtodto);
-
         UserModel userRecuperado = userRepository.findByUsername(produtodto.getUsername());
+        
         userRecuperado.addProdutosLeiloar(produto);
 
         userRepository.save(userRecuperado);
-        return null;
+        return produto;
     }
 }

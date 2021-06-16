@@ -17,11 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProdutosLeiloarControler {
     
     @Autowired
-    private ProdutoLeiloarServiceImpl produtoServiceImpl;
+    private ProdutoLeiloarServiceImpl produtoLeiloarServiceImpl;
 
     @PostMapping
-    public ResponseEntity<ProdutoModel> salvarProduto(@RequestBody ProdutoDTO produto){
-        ProdutoModel tempProduto = produtoServiceImpl.salvarProduto(produto);
+    public ResponseEntity<ProdutoModel> salvarProdutoLeiloar(@RequestBody ProdutoDTO produto){
+        ProdutoModel tempProduto = produtoLeiloarServiceImpl.salvarProduto(produto);
 
         if(tempProduto != null){
             return ResponseEntity.status(HttpStatus.CREATED).body(tempProduto);
