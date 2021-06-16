@@ -52,7 +52,7 @@ public class UserModel implements Serializable {
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name =  "id")
-	private List<ModeloProduto> produtosAdquiridos;
+	private List<ProdutoModel> produtosAdquiridos;
 
 	public UserModel() {
 	}
@@ -182,15 +182,15 @@ public class UserModel implements Serializable {
 		this.birthday = birthday;
 	}
 
-	public List<ModeloProduto> getProdutosAdquiridos() {
+	public List<ProdutoModel> getProdutosAdquiridos() {
 		return produtosAdquiridos;
 	}
 
-	public void setProdutosAdquiridos(List<ModeloProduto> produtosAdquiridos) {
+	public void setProdutosAdquiridos(List<ProdutoModel> produtosAdquiridos) {
 		this.produtosAdquiridos = produtosAdquiridos;
 	}
 
-	public void addProduto(ModeloProduto modeloProduto) {
+	public void addProduto(ProdutoModel modeloProduto) {
 		this.produtosAdquiridos.add(modeloProduto);
 	}
 	

@@ -8,9 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.leilao.leilaoSite.presentation.produto.dto.ProdutoDTO;
+
 @Entity
 @Table(name = "TB_PRODUCT")
-public class ModeloProduto implements Serializable{
+public class ProdutoModel implements Serializable{
     
     @Id
     @GeneratedValue
@@ -26,11 +28,15 @@ public class ModeloProduto implements Serializable{
     @Column(name = "PRICE")
     private float price;
 
-    public ModeloProduto(){
+    public ProdutoModel(ProdutoDTO produtoDTO) {
+        
+    }
+
+    public ProdutoModel(){
 
     }
 
-    public ModeloProduto(String name, String descricao, float price){
+    public ProdutoModel(String name, String descricao, float price){
         this.name = name;
         this.descricao = descricao;
         this.price = price;

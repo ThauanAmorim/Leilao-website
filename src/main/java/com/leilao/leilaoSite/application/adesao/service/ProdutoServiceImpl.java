@@ -3,7 +3,7 @@ package com.leilao.leilaoSite.application.adesao.service;
 import java.util.List;
 
 import com.leilao.leilaoSite.domain.adesao.service.ProductService;
-import com.leilao.leilaoSite.domain.leilao.model.ModeloProduto;
+import com.leilao.leilaoSite.domain.leilao.model.ProdutoModel;
 import com.leilao.leilaoSite.infrastructure.Product.ProductRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,17 +16,17 @@ public class ProdutoServiceImpl implements ProductService{
     private ProductRepository modeloProduto;
 
     @Override
-    public List<ModeloProduto> getAllProduto(String name) {
+    public List<ProdutoModel> getAllProduto(String name) {
         return modeloProduto.findAll();
     }
 
     @Override
-    public ModeloProduto findProductByName(String name) {
+    public ProdutoModel findProductByName(String name) {
         return this.modeloProduto.findProductByName(name);
     }
 
     @Override
-    public ModeloProduto saveProduct(ModeloProduto product) {
+    public ProdutoModel saveProduct(ProdutoModel product) {
         return this.modeloProduto.save(product);
     }
 }

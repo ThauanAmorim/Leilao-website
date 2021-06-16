@@ -1,12 +1,12 @@
 package com.leilao.leilaoSite.domain.adesao.service;
 
 import java.util.List;
-import com.leilao.leilaoSite.domain.leilao.model.ModeloProduto;
+import com.leilao.leilaoSite.domain.leilao.model.ProdutoModel;
 
 public interface ProductService {
-    public ModeloProduto findProductByName(String name);
+    public ProdutoModel findProductByName(String name);
 
-    public List<ModeloProduto> getAllProduto(String name);
+    public List<ProdutoModel> getAllProduto(String name);
 
-    public ModeloProduto saveProduct(ModeloProduto product);
+    public ProdutoModel saveProduct(ProdutoModel product);
 }
