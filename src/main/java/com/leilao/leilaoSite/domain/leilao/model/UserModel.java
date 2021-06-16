@@ -54,6 +54,10 @@ public class UserModel implements Serializable {
 	@JoinColumn(name =  "id")
 	private List<ProdutoModel> produtosAdquiridos;
 
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name =  "id")
+	private List<ProdutoModel> ProdutosLeiloar;
+
 	public UserModel() {
 	}
 
