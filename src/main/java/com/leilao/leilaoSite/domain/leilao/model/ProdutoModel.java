@@ -10,7 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.leilao.leilaoSite.presentation.produto.dto.ProdutoDTO;
+import com.leilao.leilaoSite.presentation.produto.dto.ProdutoArrematadoDTO;
+import com.leilao.leilaoSite.presentation.produto.dto.ProdutoLeiloarDTO;
 
 @Entity
 @Table(name = "TB_PRODUTO")
@@ -39,8 +40,8 @@ public class ProdutoModel implements Serializable{
     @Column(name = "DATA_REGISTRO")
     private Date dataRegistro;
 
-    public ProdutoModel(ProdutoDTO produtoDTO) {
-        this.nome = produtoDTO.getNome();
+    public ProdutoModel(ProdutoLeiloarDTO produtoDTO) {
+        this.nome = produtoDTO.getNomeProduto();
         this.descricao = produtoDTO.getDescricao();
         this.preco = produtoDTO.getPreco();
         this.arrematado = false;

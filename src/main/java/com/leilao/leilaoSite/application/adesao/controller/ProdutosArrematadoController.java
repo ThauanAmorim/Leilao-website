@@ -2,7 +2,7 @@ package com.leilao.leilaoSite.application.adesao.controller;
 
 import com.leilao.leilaoSite.application.adesao.service.ProdutoArrematadoServiceImpl;
 import com.leilao.leilaoSite.domain.leilao.model.ProdutoModel;
-import com.leilao.leilaoSite.presentation.produto.dto.ProdutoDTO;
+import com.leilao.leilaoSite.presentation.produto.dto.ProdutoArrematadoDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +20,7 @@ public class ProdutosArrematadoController {
     private ProdutoArrematadoServiceImpl produtoArrematadoServiceImpl;
 
     @PostMapping
-    public ResponseEntity<ProdutoModel> salvarProdutoArrematado(@RequestBody ProdutoDTO  produtoDTO){
+    public ResponseEntity<ProdutoModel> salvarProdutoArrematado(@RequestBody ProdutoArrematadoDTO  produtoDTO){
         ProdutoModel tempProduto = produtoArrematadoServiceImpl.salvarProduto(produtoDTO);
 
         if(tempProduto != null){
