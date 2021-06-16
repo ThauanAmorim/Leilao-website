@@ -1,4 +1,4 @@
-package com.leilao.leilaoSite.domain.adesao.service;
+package com.leilao.leilaoSite.domain.leilao.service;
 
 import java.util.List;
 import com.leilao.leilaoSite.domain.leilao.model.ProdutoModel;

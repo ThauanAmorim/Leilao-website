@@ -1,4 +1,4 @@
-package com.leilao.leilaoSite.infrastructure.Product;
+package com.leilao.leilaoSite.infrastructure.persistence.repository.produto;
 
 import com.leilao.leilaoSite.domain.leilao.model.ProdutoModel;
 

@@ -5,8 +5,11 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.leilao.leilaoSite.presentation.produto.dto.ProdutoDTO;
@@ -16,7 +19,7 @@ import com.leilao.leilaoSite.presentation.produto.dto.ProdutoDTO;
 public class ProdutoModel implements Serializable{
     
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "ID")
     private long id;
 
@@ -32,11 +35,17 @@ public class ProdutoModel implements Serializable{
     @Column(name = "ARREMATADO")
     private boolean arrematado;
 
-    @Column(name = "DATAARREMATADO")
+    @Column(name = "DATA_ARREMATADO")
     private Date dataArrematado;
 
-    @Column(name = "DATAREGISTRO")
+    @Column(name = "DATA_REGISTRO")
     private Date dataRegistro;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    private UserModel donoProduto;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    private UserModel userArrematouProduto;
 
     public ProdutoModel(ProdutoDTO produtoDTO) {
         this.nome = produtoDTO.getNome();
@@ -109,5 +118,37 @@ public class ProdutoModel implements Serializable{
 
     public boolean isArrematado(){
         return this.arrematado;
+    }
+
+    public Date getDataArrematado() {
+        return dataArrematado;
+    }
+
+    public void setDataArrematado(Date dataArrematado) {
+        this.dataArrematado = dataArrematado;
+    }
+
+    public Date getDataRegistro() {
+        return dataRegistro;
+    }
+
+    public void setDataRegistro(Date dataRegistro) {
+        this.dataRegistro = dataRegistro;
+    }
+
+    public UserModel getDonoProduto() {
+        return donoProduto;
+    }
+
+    public void setDonoProduto(UserModel donoProduto) {
+        this.donoProduto = donoProduto;
+    }
+
+    public UserModel getUserArrematouProduto() {
+        return userArrematouProduto;
+    }
+
+    public void setUserArrematouProduto(UserModel userArrematouProduto) {
+        this.userArrematouProduto = userArrematouProduto;
     }
 }

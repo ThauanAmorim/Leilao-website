@@ -51,11 +51,11 @@ public class UserModel implements Serializable {
 	private Date birthday;
 
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name =  "id")
-	private List<ProdutoModel> produtosAdquiridos;
+	@JoinColumn(name =  "PRODUTOS_ADQUIRIDOS_FK")
+	private List<ProdutoModel> produtosArrematado;
 
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name =  "id")
+	@JoinColumn(name =  "PRODUTOS_LEILOAR_FK")
 	private List<ProdutoModel> ProdutosLeiloar;
 
 	public UserModel() {
@@ -186,16 +186,16 @@ public class UserModel implements Serializable {
 		this.birthday = birthday;
 	}
 
-	public List<ProdutoModel> getProdutosAdquiridos() {
-		return produtosAdquiridos;
+	public List<ProdutoModel> getProdutosArrematado() {
+		return produtosArrematado;
 	}
 
-	public void setProdutosAdquiridos(List<ProdutoModel> produtosAdquiridos) {
-		this.produtosAdquiridos = produtosAdquiridos;
+	public void setProdutosArrematado(List<ProdutoModel> produtosAdquiridos) {
+		this.produtosArrematado = produtosAdquiridos;
 	}
 
-	public void addProduto(ProdutoModel modeloProduto) {
-		this.produtosAdquiridos.add(modeloProduto);
+	public void addProdutoArrematado(ProdutoModel modeloProduto) {
+		this.produtosArrematado.add(modeloProduto);
 	}
 
 	public List<ProdutoModel> getProdutosLeiloar() {
