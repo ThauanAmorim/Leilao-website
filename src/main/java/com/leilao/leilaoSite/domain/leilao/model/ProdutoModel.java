@@ -28,6 +28,9 @@ public class ProdutoModel implements Serializable{
     @Column(name = "PRICE")
     private float price;
 
+    @Column(name = "ARREMATADO")
+    private boolean arrematado;
+
     public ProdutoModel(ProdutoDTO produtoDTO) {
         
     }
@@ -86,5 +89,13 @@ public class ProdutoModel implements Serializable{
 
     public void setprice(float price) {
         this.price = price;
+    }
+
+    public void setArrematado(boolean arrametado){
+        this.arrematado = arrametado;
+    }
+
+    public boolean isArrematado(){
+        return this.arrematado;
     }
 }

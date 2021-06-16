@@ -197,5 +197,16 @@ public class UserModel implements Serializable {
 	public void addProduto(ProdutoModel modeloProduto) {
 		this.produtosAdquiridos.add(modeloProduto);
 	}
-	
+
+	public List<ProdutoModel> getProdutosLeiloar() {
+		return ProdutosLeiloar;
+	}
+
+	public void setProdutosLeiloar(List<ProdutoModel> ProdutosLeiloar) {
+		this.ProdutosLeiloar = ProdutosLeiloar;
+	}
+
+	public void addProdutosLeiloar(ProdutoModel modeloProduto) {
+		this.ProdutosLeiloar.add(modeloProduto);
+	}
 }
