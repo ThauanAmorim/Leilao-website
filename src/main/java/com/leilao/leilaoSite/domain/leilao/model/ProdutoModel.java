@@ -40,12 +40,6 @@ public class ProdutoModel implements Serializable{
 
     @Column(name = "DATA_REGISTRO")
     private Date dataRegistro;
-    
-    @ManyToOne(fetch = FetchType.EAGER)
-    private UserModel donoProduto;
-    
-    @ManyToOne(fetch = FetchType.EAGER)
-    private UserModel userArrematouProduto;
 
     public ProdutoModel(ProdutoDTO produtoDTO) {
         this.nome = produtoDTO.getNome();
@@ -134,21 +128,5 @@ public class ProdutoModel implements Serializable{
 
     public void setDataRegistro(Date dataRegistro) {
         this.dataRegistro = dataRegistro;
-    }
-
-    public UserModel getDonoProduto() {
-        return donoProduto;
-    }
-
-    public void setDonoProduto(UserModel donoProduto) {
-        this.donoProduto = donoProduto;
-    }
-
-    public UserModel getUserArrematouProduto() {
-        return userArrematouProduto;
-    }
-
-    public void setUserArrematouProduto(UserModel userArrematouProduto) {
-        this.userArrematouProduto = userArrematouProduto;
     }
 }

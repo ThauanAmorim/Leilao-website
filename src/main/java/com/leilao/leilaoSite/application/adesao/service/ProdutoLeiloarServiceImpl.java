@@ -37,7 +37,6 @@ public class ProdutoLeiloarServiceImpl implements ProdutoService{
 
         UserModel userRecuperado = userRepository.findByUsername(produtodto.getUsername());
         userRecuperado.addProdutosLeiloar(produto);
-        produto.setDonoProduto(userRecuperado);
 
         userRepository.save(userRecuperado);
         return null;

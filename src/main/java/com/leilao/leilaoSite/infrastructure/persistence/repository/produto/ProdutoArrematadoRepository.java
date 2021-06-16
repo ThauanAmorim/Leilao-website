@@ -11,4 +11,5 @@ import org.springframework.stereotype.Repository;
 public interface ProdutoArrematadoRepository extends JpaRepository<ProdutoModel, Long>{
     @Query("SELECT p FROM ProdutoModel p WHERE p.nome = :nome") 
     public ProdutoModel findProductByName(@Param("nome") String nome);
+    
 }

@@ -32,12 +32,12 @@ public class ProdutoArrematadoServiceImpl implements ProdutoService {
 
     @Override
     public ProdutoModel salvarProduto(ProdutoDTO produtodto) {
-        ProdutoModel produto = new ProdutoModel(produtodto);
+        ProdutoModel produtoModel = produtoArrematadoRepository.findProductByName(produtodto.getNome());
+        UserModel userModel = userRepository.findByUsername(produtodto.getUsername());
 
-        UserModel userRecuperado = userRepository.findByUsername(produtodto.getUsername());
-        userRecuperado.addProdutoArrematado(produto);
-        produto.setDonoProduto(userRecuperado);
-        userRepository.save(userRecuperado);
+        userModel.addProdutoArrematado(produtoModel);
+
+        userRepository.update(userModel.getProdutosArrematado(), userModel.getId());
         return null;
     }
     
