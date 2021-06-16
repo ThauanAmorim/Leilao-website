@@ -17,37 +17,37 @@ public class ModeloProduto implements Serializable{
     @Column(name = "ID")
     private long id;
 
-    @Column(name = "NOME")
-    private String nome;
+    @Column(name = "NAME")
+    private String name;
 
     @Column(name = "DESCRIPTION")
     private String descricao;
 
-    @Column(name = "PRECO")
-    private float preco;
+    @Column(name = "PRICE")
+    private float price;
 
     public ModeloProduto(){
 
     }
 
-    public ModeloProduto(String nome, String descricao, float preco){
-        this.nome = nome;
+    public ModeloProduto(String name, String descricao, float price){
+        this.name = name;
         this.descricao = descricao;
-        this.preco = preco;
+        this.price = price;
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
 		int result = 1;
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
         return result;
     }
 
     @Override
 	public String toString() {
-		return "Produto [id=" + id + ", nome=" + nome + ", descrição=" + descricao + "]";
+		return "Produto [id=" + id + ", name=" + name + ", descrição=" + descricao + "]";
 	}
 
     public long getId(){
@@ -59,11 +59,11 @@ public class ModeloProduto implements Serializable{
 	}
     
     public String getNome(){
-        return nome;
+        return name;
     }
 
-    public void setNome(String nome){
-        this.nome = nome;
+    public void setNome(String name){
+        this.name = name;
     }
 
     public String getDescricao(){
@@ -74,11 +74,11 @@ public class ModeloProduto implements Serializable{
         this.descricao = descricao;
     }
 
-    public float getPreco() {
-        return preco;
+    public float getprice() {
+        return price;
     }
 
-    public void setPreco(float preco) {
-        this.preco = preco;
+    public void setprice(float price) {
+        this.price = price;
     }
 }
