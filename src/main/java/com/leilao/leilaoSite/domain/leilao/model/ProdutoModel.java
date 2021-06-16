@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.leilao.leilaoSite.presentation.produto.dto.ProdutoArrematadoDTO;
 import com.leilao.leilaoSite.presentation.produto.dto.ProdutoLeiloarDTO;
 
 @Entity

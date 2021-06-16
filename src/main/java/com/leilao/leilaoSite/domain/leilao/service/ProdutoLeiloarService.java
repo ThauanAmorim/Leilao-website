@@ -5,4 +5,8 @@ import com.leilao.leilaoSite.presentation.produto.dto.ProdutoLeiloarDTO;
 
 public interface ProdutoLeiloarService extends ProdutoService {
     public ProdutoModel salvarProduto(ProdutoLeiloarDTO produto);
+
+    public ProdutoModel update(ProdutoLeiloarDTO produtoDTO);
+
+    public String delete(Long id);
 }
