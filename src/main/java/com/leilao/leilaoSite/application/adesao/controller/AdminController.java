@@ -1,14 +1,9 @@
 package com.leilao.leilaoSite.application.adesao.controller;
 
 import java.util.List;
-import java.util.Optional;
-
-import javax.websocket.server.PathParam;
 
 import com.leilao.leilaoSite.application.adesao.service.AdminServiceImpl;
 import com.leilao.leilaoSite.domain.leilao.model.UserModel;
-import com.leilao.leilaoSite.infrastructure.persistence.repository.admin.AdminRepository;
-import com.leilao.leilaoSite.infrastructure.persistence.repository.user.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

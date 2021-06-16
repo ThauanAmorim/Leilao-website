@@ -13,18 +13,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/produto-adquirido")
-public class ProdutosAdquiridosController {
+@RequestMapping("/api/products")
+public class ProdutosControler {
     
     @Autowired
     private ProdutoServiceImpl produtoServiceImpl;
 
     @PostMapping
-    public ResponseEntity<ProdutoModel> saveProduct(@RequestBody ProdutoDTO  produtoDTO){
-        ProdutoModel tempProduct = produtoServiceImpl.salvarProduto(produtoDTO);
+    public ResponseEntity<ProdutoModel> salvarProduto(@RequestBody ProdutoDTO produto){
+        ProdutoModel tempProduto = produtoServiceImpl.salvarProduto(produto);
 
-        if(tempProduct != null){
-            return ResponseEntity.status(HttpStatus.CREATED).body(tempProduct);
+        if(tempProduto != null){
+            return ResponseEntity.status(HttpStatus.CREATED).body(tempProduto);
         }
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
     }

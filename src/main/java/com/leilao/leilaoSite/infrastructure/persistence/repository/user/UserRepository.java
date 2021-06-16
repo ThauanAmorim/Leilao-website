@@ -1,5 +1,4 @@
 package com.leilao.leilaoSite.infrastructure.persistence.repository.user;
-import java.util.Optional;
 
 import com.leilao.leilaoSite.domain.leilao.model.UserModel;
 
