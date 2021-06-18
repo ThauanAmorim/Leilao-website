@@ -32,54 +32,55 @@ import com.leilao.leilaoSite.presentation.user.UserDTO;
 public class UserModel implements Serializable {
 
 	private static final long serialVersionUID = -6518853480190451215L;
-
-	public UserModel (UserDTO userDTO) {
-		this.dataNascimento = userDTO.getDataNascimento();
-		this.email = userDTO.getEmail();
-		this.endereco = userDTO.getEndereco();
-		this.password = userDTO.getSenha();
-		this.username = userDTO.getUsername();
-	}
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "ID")
 	private Long id;
-
+	
 	@Column(name = "USERNAME")
 	private String username;
-
+	
 	@Column(name = "EMAIL")
 	private String email;
-
+	
 	@Column(name = "PASSWORD")
 	private String password;
-
+	
 	@Column(name = "CPF")
 	private String CPF;
-
+	
 	@Column(name = "IS_ADMIN")
 	private boolean isAdmin;
-
+	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "DATA_NASCIMENTO")
 	private Date dataNascimento;
-
+	
 	@OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
 	@JoinColumn(name = "ENDERECO_FK")
 	private EnderecoModel endereco;
-
+	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name =  "PRODUTOS_ADQUIRIDOS_FK")
 	private List<ProdutoModel> produtosArrematado;
-
+	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name =  "PRODUTOS_LEILOAR_FK")
 	private List<ProdutoModel> produtosLeiloar;
-
+	
 	public UserModel() {
 	}
 
+	public UserModel (UserDTO userDTO) {
+		this.dataNascimento = userDTO.getDataNascimento();
+		this.email = userDTO.getEmail();
+		this.CPF = userDTO.getCpf();
+		this.endereco = userDTO.getEndereco();
+		this.password = userDTO.getSenha();
+		this.username = userDTO.getUsername();
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

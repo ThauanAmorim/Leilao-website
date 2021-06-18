@@ -11,6 +11,7 @@ public class UserDTO {
     private String senha;
     private Date dataNascimento;
     private EnderecoModel endereco;
+    private String cpf;
 
     public Long getId() {
         return id;
@@ -47,5 +48,11 @@ public class UserDTO {
     }
     public void setEndereco(EnderecoModel endereco) {
         this.endereco = endereco;
+    }
+    public String getCpf() {
+        return cpf;
+    }
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 }
