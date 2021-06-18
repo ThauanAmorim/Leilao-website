@@ -21,7 +21,7 @@ public class ProdutoModel implements Serializable{
     @Column(name = "ID")
     private long id;
 
-    @Column(name = "nome")
+    @Column(name = "NOME")
     private String nome;
 
     @Column(name = "DESCRICAO")

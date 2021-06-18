@@ -19,10 +19,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "TB_USER")
+@Table(name = "TB_USER", uniqueConstraints = {@UniqueConstraint(columnNames = "username", name = "UK_USERNAME"), 
+@UniqueConstraint(columnNames = "email", name = "UK_EMAIL"),
+@UniqueConstraint(columnNames = "cpf", name = "UK_CPF"),})
 public class UserModel implements Serializable {
 
 	private static final long serialVersionUID = -6518853480190451215L;
