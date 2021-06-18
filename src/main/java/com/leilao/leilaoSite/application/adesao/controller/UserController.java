@@ -2,7 +2,6 @@ package com.leilao.leilaoSite.application.adesao.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
-import java.util.Date;
 import java.util.List;
 
 import com.leilao.leilaoSite.application.adesao.service.UserServiceImpl;

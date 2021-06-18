@@ -20,28 +20,28 @@ public class EnderecoModel implements Serializable{
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "RUA")
+    @Column(name = "RUA", nullable = false)
     private String rua;
 
-    @Column(name = "NUMERO")
+    @Column(name = "NUMERO", nullable = false)
     private int numero;
     
-    @Column(name = "BAIRRO")
+    @Column(name = "BAIRRO", nullable = false)
     private String bairro;
     
-    @Column(name = "CEP")
+    @Column(name = "CEP", nullable = false)
     private String cep;
     
-    @Column(name = "CIDADE")
+    @Column(name = "CIDADE", nullable = false)
     private String cidade;
     
-    @Column(name = "COMPLEMENTO")
+    @Column(name = "COMPLEMENTO", nullable = false)
     private String complemento;
     
-    @Column(name = "ESTADO")
+    @Column(name = "ESTADO", nullable = false)
     private String estado;
     
-    @Column(name = "PAIS")
+    @Column(name = "PAIS", nullable = false)
     private String pais;
 
     public Long getId() {

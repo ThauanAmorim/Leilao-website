@@ -38,23 +38,23 @@ public class UserModel implements Serializable {
 	@Column(name = "ID")
 	private Long id;
 	
-	@Column(name = "USERNAME")
+	@Column(name = "USERNAME", nullable = false)
 	private String username;
 	
-	@Column(name = "EMAIL")
+	@Column(name = "EMAIL", nullable = false)
 	private String email;
 	
-	@Column(name = "PASSWORD")
+	@Column(name = "PASSWORD", nullable = false)
 	private String password;
 	
-	@Column(name = "CPF")
+	@Column(name = "CPF", nullable = false)
 	private String CPF;
 	
 	@Column(name = "IS_ADMIN")
 	private boolean isAdmin;
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name = "DATA_NASCIMENTO")
+	@Column(name = "DATA_NASCIMENTO", nullable = false)
 	private Date dataNascimento;
 	
 	@OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
