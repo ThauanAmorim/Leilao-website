@@ -16,6 +16,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -51,8 +52,12 @@ public class UserModel implements Serializable {
 	private boolean isAdmin;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "BIRTHDAY")
-	private Date birthday;
+	@Column(name = "DATA_NASCIMENTO")
+	private Date dataNascimento;
+
+	@OneToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
+	@JoinColumn(name = "ENDERECO_FK")
+	private EnderecoModel endereco;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name =  "PRODUTOS_ADQUIRIDOS_FK")
@@ -73,7 +78,7 @@ public class UserModel implements Serializable {
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((CPF == null) ? 0 : CPF.hashCode());
-		result = prime * result + ((birthday == null) ? 0 : birthday.hashCode());
+		result = prime * result + ((dataNascimento == null) ? 0 : dataNascimento.hashCode());
 		return result;
 	}
 
@@ -86,10 +91,10 @@ public class UserModel implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		UserModel other = (UserModel) obj;
-		if (birthday == null) {
-			if (other.birthday != null)
+		if (dataNascimento == null) {
+			if (other.dataNascimento != null)
 				return false;
-		} else if (!removeTime(birthday).equals(removeTime(other.birthday)))
+		} else if (!removeTime(dataNascimento).equals(removeTime(other.dataNascimento)))
 			return false;
 		if (email == null) {
 			if (other.email != null)
@@ -127,7 +132,7 @@ public class UserModel implements Serializable {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + username + ", email=" + email + ", CPF=" + CPF
-				+ ", birthday=" + birthday + "]";
+				+ ", birthday=" + dataNascimento + "]";
 	}
 
 	public static long getSerialversionuid() {
@@ -183,11 +188,11 @@ public class UserModel implements Serializable {
 	}
 	
 	public Date getBirthday() {
-		return birthday;
+		return dataNascimento;
 	}
 
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
+	public void setBirthday(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 	public List<ProdutoModel> getProdutosArrematado() {
@@ -212,5 +217,13 @@ public class UserModel implements Serializable {
 
 	public void addProdutosLeiloar(ProdutoModel modeloProduto) {
 		this.ProdutosLeiloar.add(modeloProduto);
+	}
+
+	public EnderecoModel getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(EnderecoModel endereco) {
+		this.endereco = endereco;
 	}
 }
