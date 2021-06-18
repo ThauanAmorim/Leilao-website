@@ -1,0 +1,63 @@
+body{
+    background-image: url("../img/background.jpg");
+    margin: 0 auto;
+    font-family: "Roboto", sans-serif;
+}
+/*estilo da div principal*/
+.div-principal{
+    width: 100vw;
+    height: 100vh;
+}
+/*estilo da div copo*/
+.corpo{
+    position: absolute;
+    width: 40%;
+    height: 60%;
+    left: calc(50% - 40%/2);
+    bottom: 20%;
+    
+    background: rgba(240, 237, 237, 0.7);
+    mix-blend-mode: luminosity;
+    border-radius: 70px;
+}
+
+.email{
+    position: relative;
+    text-align: center;
+    top: 150px;
+    width: 40vh;
+    left: 20vh;
+    padding-bottom: 3%;
+    background: #2C6C86;
+}
+
+.password{
+    position: relative;
+    text-align: center;
+    top: 190px;
+    width: 40vh;
+    left: 20vh;
+    padding-bottom: 3%;
+    background: #2C6C86;
+    
+}
+
+.msg{
+    
+}
+
+.botao-esqueceu-senha{
+    top: 400px;
+    left: 100px;
+}
+
+.botao-logar{
+    width: 50%;
+    height: 30%;
+    left: 20vh;
+    padding-bottom: 4%;
+    bottom: 100px;
+    background: linear-gradient(180deg, #015D7E 35.16%, rgba(208, 208, 208, 0.8) 89.19%);
+    border-radius: 0px 0px 50px 50px;
+    background-color: black;
+}
