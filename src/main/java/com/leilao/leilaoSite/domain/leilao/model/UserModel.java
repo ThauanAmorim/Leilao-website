@@ -22,6 +22,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
+import com.leilao.leilaoSite.presentation.user.UserDTO;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "TB_USER", uniqueConstraints = {@UniqueConstraint(columnNames = "username", name = "UK_USERNAME"), 
@@ -30,6 +32,14 @@ import javax.persistence.UniqueConstraint;
 public class UserModel implements Serializable {
 
 	private static final long serialVersionUID = -6518853480190451215L;
+
+	public UserModel (UserDTO userDTO) {
+		this.dataNascimento = userDTO.getDataNascimento();
+		this.email = userDTO.getEmail();
+		this.endereco = userDTO.getEndereco();
+		this.password = userDTO.getSenha();
+		this.username = userDTO.getUsername();
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -55,7 +65,7 @@ public class UserModel implements Serializable {
 	@Column(name = "DATA_NASCIMENTO")
 	private Date dataNascimento;
 
-	@OneToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
+	@OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
 	@JoinColumn(name = "ENDERECO_FK")
 	private EnderecoModel endereco;
 
@@ -65,7 +75,7 @@ public class UserModel implements Serializable {
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name =  "PRODUTOS_LEILOAR_FK")
-	private List<ProdutoModel> ProdutosLeiloar;
+	private List<ProdutoModel> produtosLeiloar;
 
 	public UserModel() {
 	}
@@ -135,10 +145,6 @@ public class UserModel implements Serializable {
 				+ ", birthday=" + dataNascimento + "]";
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -179,44 +185,20 @@ public class UserModel implements Serializable {
 		CPF = cPF;
 	}
 
-	public boolean getIsAdmin() {
+	public boolean isAdmin() {
 		return isAdmin;
 	}
 
-	public void setIsAdmin(boolean status) {
-		isAdmin = status;
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
 	}
-	
-	public Date getBirthday() {
+
+	public Date getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setBirthday(Date dataNascimento) {
+	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
-	}
-
-	public List<ProdutoModel> getProdutosArrematado() {
-		return produtosArrematado;
-	}
-
-	public void setProdutosArrematado(List<ProdutoModel> produtosArrematados) {
-		this.produtosArrematado = produtosArrematados;
-	}
-
-	public void addProdutoArrematado(ProdutoModel modeloProduto) {
-		this.produtosArrematado.add(modeloProduto);
-	}
-
-	public List<ProdutoModel> getProdutosLeiloar() {
-		return ProdutosLeiloar;
-	}
-
-	public void setProdutosLeiloar(List<ProdutoModel> ProdutosLeiloar) {
-		this.ProdutosLeiloar = ProdutosLeiloar;
-	}
-
-	public void addProdutosLeiloar(ProdutoModel modeloProduto) {
-		this.ProdutosLeiloar.add(modeloProduto);
 	}
 
 	public EnderecoModel getEndereco() {
@@ -225,5 +207,29 @@ public class UserModel implements Serializable {
 
 	public void setEndereco(EnderecoModel endereco) {
 		this.endereco = endereco;
+	}
+
+	public List<ProdutoModel> getProdutosArrematado() {
+		return produtosArrematado;
+	}
+
+	public void setProdutosArrematado(List<ProdutoModel> produtosArrematado) {
+		this.produtosArrematado = produtosArrematado;
+	}
+
+	public List<ProdutoModel> getProdutosLeiloar() {
+		return produtosLeiloar;
+	}
+
+	public void setProdutosLeiloar(List<ProdutoModel> produtosLeiloar) {
+		this.produtosLeiloar = produtosLeiloar;
+	}
+	
+	public void addProdutoLeiloar (ProdutoModel produtoModel) {
+		produtosLeiloar.add(produtoModel);
+	}
+
+	public void addProdutoArrematado (ProdutoModel produtoModel) {
+		produtosArrematado.add(produtoModel);
 	}
 }

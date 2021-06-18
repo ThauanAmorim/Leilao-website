@@ -5,7 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import com.leilao.leilaoSite.domain.leilao.model.UserModel;
-import com.leilao.leilaoSite.presentation.authentication.dto.UserDTO;
+import com.leilao.leilaoSite.presentation.user.UserDTO;
 
 public interface UserService {
     public void criptografarSenha(UserModel user) throws NoSuchAlgorithmException, UnsupportedEncodingException;

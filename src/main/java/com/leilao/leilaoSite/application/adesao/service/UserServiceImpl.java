@@ -9,7 +9,7 @@ import java.util.List;
 import com.leilao.leilaoSite.domain.leilao.model.UserModel;
 import com.leilao.leilaoSite.domain.leilao.service.UserService;
 import com.leilao.leilaoSite.infrastructure.persistence.repository.user.UserRepository;
-import com.leilao.leilaoSite.presentation.authentication.dto.UserDTO;
+import com.leilao.leilaoSite.presentation.user.UserDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -61,15 +61,15 @@ public class UserServiceImpl implements UserService{
         if(userDTO.getEmail()!=null){
             user.setEmail(userDTO.getEmail());
         }
-        if(userDTO.getPassword()!=null){
+        if(userDTO.getSenha()!=null){
             try {
-                user.setPassword(shar256(userDTO.getPassword()));
+                user.setPassword(shar256(userDTO.getSenha()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        if(userDTO.getBirthday()!=null){
-            user.setBirthday(userDTO.getBirthday());
+        if(userDTO.getDataNascimento()!=null){
+            user.setDataNascimento(userDTO.getDataNascimento());
         }
         return userRepository.save(user);
     }

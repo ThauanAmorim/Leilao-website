@@ -31,7 +31,7 @@ public class AdminServiceImpl implements adminService {
 
     @Override
     public UserModel saveAdmin(UserModel userModel) {
-        userModel.setIsAdmin(true);
+        userModel.setAdmin(true);
         return adminRepository.save(userModel);
     }
 
@@ -40,7 +40,7 @@ public class AdminServiceImpl implements adminService {
         UserModel userModel = userRepository.findByUsername(username);
 
         if(userModel != null) {
-            userModel.setIsAdmin(true);
+            userModel.setAdmin(true);
             return adminRepository.save(userModel);
         }
         return null;

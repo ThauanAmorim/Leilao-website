@@ -7,7 +7,7 @@ import java.util.List;
 
 import com.leilao.leilaoSite.application.adesao.service.UserServiceImpl;
 import com.leilao.leilaoSite.domain.leilao.model.UserModel;
-import com.leilao.leilaoSite.presentation.authentication.dto.UserDTO;
+import com.leilao.leilaoSite.presentation.user.UserDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,8 +29,8 @@ public class UserController {
     private UserServiceImpl userServiceImpl;
 
     @PostMapping
-    public ResponseEntity<UserModel> salvarUser(@RequestBody UserModel user) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-        user.setBirthday(new Date(System.currentTimeMillis()));
+    public ResponseEntity<UserModel> salvarUser(@RequestBody UserDTO userDTO) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+        UserModel user = new UserModel(userDTO);
         userServiceImpl.criptografarSenha(user);
         UserModel userSalvo = userServiceImpl.salvarUser(user);
 
