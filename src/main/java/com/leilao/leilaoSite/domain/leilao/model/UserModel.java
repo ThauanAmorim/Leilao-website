@@ -1,4 +1,4 @@
-package com.leilao.leilaoSite.domain.adesao.model;
+package com.leilao.leilaoSite.domain.leilao.model;
 
 import java.io.Serializable;
 import java.util.Calendar;
@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,10 +19,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "TB_USER")
+@Table(name = "TB_USER", uniqueConstraints = {@UniqueConstraint(columnNames = "username", name = "UK_USERNAME"), 
+@UniqueConstraint(columnNames = "email", name = "UK_EMAIL"),
+@UniqueConstraint(columnNames = "cpf", name = "UK_CPF"),})
 public class UserModel implements Serializable {
 
 	private static final long serialVersionUID = -6518853480190451215L;
@@ -50,18 +54,13 @@ public class UserModel implements Serializable {
 	@Column(name = "BIRTHDAY")
 	private Date birthday;
 
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name =  "id")
-	private List<ModeloProduto> compras;
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name =  "PRODUTOS_ADQUIRIDOS_FK")
+	private List<ProdutoModel> produtosArrematado;
 
-	public UserModel(Long id, String username, String email, String password, String cPF, Date birthday) {
-		this.id = id;
-		this.username = username;
-		this.email = email;
-		this.password = password;
-		CPF = cPF;
-		this.birthday = birthday;
-	}
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name =  "PRODUTOS_LEILOAR_FK")
+	private List<ProdutoModel> ProdutosLeiloar;
 
 	public UserModel() {
 	}
@@ -189,5 +188,29 @@ public class UserModel implements Serializable {
 
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
+	}
+
+	public List<ProdutoModel> getProdutosArrematado() {
+		return produtosArrematado;
+	}
+
+	public void setProdutosArrematado(List<ProdutoModel> produtosArrematados) {
+		this.produtosArrematado = produtosArrematados;
+	}
+
+	public void addProdutoArrematado(ProdutoModel modeloProduto) {
+		this.produtosArrematado.add(modeloProduto);
+	}
+
+	public List<ProdutoModel> getProdutosLeiloar() {
+		return ProdutosLeiloar;
+	}
+
+	public void setProdutosLeiloar(List<ProdutoModel> ProdutosLeiloar) {
+		this.ProdutosLeiloar = ProdutosLeiloar;
+	}
+
+	public void addProdutosLeiloar(ProdutoModel modeloProduto) {
+		this.ProdutosLeiloar.add(modeloProduto);
 	}
 }

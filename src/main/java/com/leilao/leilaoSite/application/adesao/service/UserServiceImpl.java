@@ -5,9 +5,12 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
-import com.leilao.leilaoSite.domain.adesao.model.UserModel;
-import com.leilao.leilaoSite.domain.adesao.service.UserService;
+
+import com.leilao.leilaoSite.domain.leilao.model.UserModel;
+import com.leilao.leilaoSite.domain.leilao.service.UserService;
 import com.leilao.leilaoSite.infrastructure.persistence.repository.user.UserRepository;
+import com.leilao.leilaoSite.presentation.authentication.dto.UserDTO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,4 +50,34 @@ public class UserServiceImpl implements UserService{
     public List<UserModel> getAllUsers() {
         return userRepository.findAll();
     }
+
+    @Override
+    public UserModel update(UserDTO userDTO) {
+        UserModel user = userRepository.getById(userDTO.getId());
+
+        if(userDTO.getUsername()!=null){
+            user.setUsername(userDTO.getUsername());
+        }
+        if(userDTO.getEmail()!=null){
+            user.setEmail(userDTO.getEmail());
+        }
+        if(userDTO.getPassword()!=null){
+            try {
+                user.setPassword(shar256(userDTO.getPassword()));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if(userDTO.getBirthday()!=null){
+            user.setBirthday(userDTO.getBirthday());
+        }
+        return userRepository.save(user);
+    }
+
+    @Override
+    public String delete(UserDTO userDTO) {
+        Long id = userRepository.findByUsername(userDTO.getUsername()).getId();
+        userRepository.deleteById(id);
+        return "Usuario Deletado com Sucesso.";
+    }  
 }

@@ -3,8 +3,8 @@ package com.leilao.leilaoSite.application.adesao.service;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
-import com.leilao.leilaoSite.domain.adesao.model.UserModel;
-import com.leilao.leilaoSite.domain.adesao.service.LoginService;
+import com.leilao.leilaoSite.domain.leilao.model.UserModel;
+import com.leilao.leilaoSite.domain.leilao.service.LoginService;
 import com.leilao.leilaoSite.infrastructure.persistence.repository.user.UserRepository;
 import com.leilao.leilaoSite.presentation.authentication.dto.LoginDTO;
 import com.leilao.leilaoSite.presentation.authentication.exception.CredenciaisInvalidasException;
