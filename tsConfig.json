@@ -1,0 +1,12 @@
+{
+    "compilerOptions" : {
+        "target": "ES2019",
+        "module": "CommonJS",
+        "lib": ["ESNext", "dom"],
+        "outDir": "./src/main/front/typescript/compiled",
+        "rootDir": "./src/main/front/typescript",
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true
+    },
+    "include": ["./src"]
+}
