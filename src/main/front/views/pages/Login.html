@@ -6,10 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../../assets/css/estiloLogin.css">
+    <link rel="stylesheet" href="../../assets/css/estiloLogin.css" media="screen">
 </head>
 
 <body>
+    <div class="div-principal">
+    </div>
     <div class="corpo">
         <form action="" method="POST">
 
@@ -18,16 +20,14 @@
             <input type="password" name="" class="password" placeholder="Senha">
 
             <div class="check-box">
-                <input type="checkbox" name="" class="password">
                 <p class="msg">Lembrar Senha</p>
+                <input class="check-box-button" type="checkbox" name="">
             </div>
 
             <button class="botao-esqueceu-senha">Esqueceu a Senha?</button>
 
-            <button id="botao-logar" type="button">Logar</button>
+            <button class="botao-logar" id="botao-logar">Logar</button>
         </form>
-    </div>
-    <div class="div-principal">
     </div>
     <script type="text/javascript" src="../../typescript/compiled/FazerLogin.js"></script>
 </body>
