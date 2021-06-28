@@ -19,6 +19,20 @@ body {
     mix-blend-mode: luminosity;
 }
 
+.imagem-person {
+    position: fixed;
+    margin-left: 13%;
+    margin-top: -5%;
+    width: 10%;
+}
+
+.imagem-email {
+    position: inherit;
+    margin-top: 20%;
+    margin-left: 10%;
+    height: 40px;
+}
+
 .email {
     position: inherit;
     width: 70%;
