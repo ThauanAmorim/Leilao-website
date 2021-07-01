@@ -1,0 +1,175 @@
+body {
+    background-image: url("../img/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: "Roboto", sans-serif;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.corpo {
+    width: 80%;
+    height: 400px;
+    margin: auto;
+    margin-top: 10%;
+    border-radius: 40px;
+    box-shadow: 0px 10px 15px #255c72;
+    background-color: rgba(196, 236, 244, 0.9);
+    background-blend-mode: normal;
+    mix-blend-mode: luminosity;
+}
+
+.imagem-person {
+    position: inherit;
+    margin-top: -5%;
+    margin-left: 42%;
+    width: 12%;
+}
+
+.imagem-email {
+    position: inherit;
+    margin-top: 20%;
+    margin-left: 10%;
+    height: 40px;
+}
+
+.nome {
+    float: left;
+    position: left;
+    width: 30%;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 15%;
+    padding-left: 2%;
+    font-size: 130%;
+    vertical-align: middle;
+    background: #2C6C86;
+    color: white; 
+}
+
+.nome::placeholder {
+    position: sticky;
+    color: white;
+    padding-left: 3%;
+    font-size: 110%;
+}
+
+.email {
+    float: left;
+    position: left;
+    width: 30%;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 100px;
+    padding-left: 2%;
+    font-size: 130%;
+    vertical-align: middle;
+    background: #2C6C86;
+    color: white;
+}
+
+.email::placeholder {
+    position: sticky;
+    color: white;
+    padding-left: 3%;
+    font-size: 110%;
+}
+
+.data {
+    float: left;
+    position: left;
+    width: 30%;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 15%;
+    padding-left: 2%;
+    font-size: 130%;
+    vertical-align: middle;
+    background: #2C6C86;
+    color: white;
+}
+
+.cpf{
+    float: left;
+    position: left;
+    width: 30%;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 100px;
+    padding-left: 2%;
+    font-size: 130%;
+    vertical-align: middle;
+    background: #2C6C86;
+    color: white;
+}
+
+.cpf::placeholder {
+    position: sticky;
+    color: white;
+    padding-left: 3%;
+    font-size: 110%;
+}
+
+.password {
+    float: left;
+    position: left;
+    width: 30%;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 15%;
+    padding-left: 2%;
+    font-size: 130%;
+    vertical-align: middle;
+    background: #2C6C86;
+    color: white;
+}
+
+.password::placeholder {
+    position: sticky;
+    color: white;
+    padding-left: 3%;
+    font-size: 110%;
+}
+
+.confirmar-senha{
+    float: left;
+    position: left;
+    width: 30%;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 100px;
+    padding-left: 2%;
+    font-size: 130%;
+    vertical-align: middle;
+    background: #2C6C86;
+    color: white;
+}
+
+.confirmar-senha::placeholder {
+    position: sticky;
+    color: white;
+    padding-left: 3%;
+    font-size: 110%;
+}
+
+.botao-tem-conta {
+    width: fit-content;
+    font-size: 105%;
+    margin-top: 10px;
+    margin-left: 41%;
+    margin-bottom: 10%;
+}
+
+.botao-cadastrar{
+    position: fixed;
+    margin-left: 42%;
+    height: 7%;
+    width: 15%;
+    border: none;
+    background: linear-gradient(180deg, #2C6C86 1%, rgba(196, 236, 244, 0.9));
+    border-radius: 0px 0px 30px 30px;
+    color: white;
+    font-size: 130%;
+    font-family: Roboto;
+    font-style: normal;
+}
