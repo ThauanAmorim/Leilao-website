@@ -33,7 +33,7 @@ body {
     height: 40px;
 }
 
-.nome {
+.username {
     float: left;
     position: left;
     width: 30%;
@@ -47,7 +47,7 @@ body {
     color: white; 
 }
 
-.nome::placeholder {
+.username::placeholder {
     position: sticky;
     color: white;
     padding-left: 3%;
