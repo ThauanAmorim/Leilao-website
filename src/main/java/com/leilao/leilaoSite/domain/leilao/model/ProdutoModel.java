@@ -38,6 +38,9 @@ public class ProdutoModel implements Serializable{
 
     @Column(name = "DATA_REGISTRO")
     private Date dataRegistro;
+    
+    @Column(name = "CATEGORIA", nullable = false)
+    private Categoria categora;
 
     public ProdutoModel(ProdutoLeiloarDTO produtoDTO) {
         this.nome = produtoDTO.getNomeProduto();
@@ -52,10 +55,11 @@ public class ProdutoModel implements Serializable{
 
     }
 
-    public ProdutoModel(String nome, String descricao, float preco){
+    public ProdutoModel(String nome, String descricao, float preco, Categoria categoria){
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
+        this.categora = categoria;
     }
 
     @Override
