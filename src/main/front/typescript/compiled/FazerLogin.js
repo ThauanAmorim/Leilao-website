@@ -12,11 +12,14 @@ async function logar() {
             senha: document.getElementById("passwordInput").value })
     });
     if (rawResponse.ok) {
+        document.getElementById("usernameInput").style.border = null;
+        document.getElementById("passwordInput").style.border = null;
         const content = await rawResponse.json();
         console.log(content);
     }
     else if (rawResponse.status == 400) {
-        console.log("erro de login");
+        document.getElementById("usernameInput").style.border = "5px solid #ff0000";
+        document.getElementById("passwordInput").style.border = "5px solid #ff0000";
     }
     else {
         console.log("algum erro maluco");
