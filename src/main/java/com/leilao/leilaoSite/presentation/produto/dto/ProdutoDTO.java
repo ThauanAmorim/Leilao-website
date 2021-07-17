@@ -1,4 +1,4 @@
-package com.leilao.leilaoSite.domain.leilao.model;
+package com.leilao.leilaoSite.presentation.produto.dto;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,46 +10,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.leilao.leilaoSite.presentation.produto.dto.ProdutoDTO;
-
-@Entity
-@Table(name = "TB_PRODUTO")
-public class ProdutoModel implements Serializable{
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "ID")
+public class ProdutoDTO implements Serializable{
     private long id;
-
-    @Column(name = "NOME", nullable = false)
     private String nome;
-
-    @Column(name = "ARREMATADO")
     private boolean arrematado;
-
-    @Column(name = "DATA_ARREMATADO")
     private Date dataArrematado;
-
-    @Column(name = "DATA_REGISTRO")
     private Date dataRegistro;
+    private String username;
 
-    public ProdutoModel(ProdutoDTO produtoDTO) {
-        this.nome = produtoDTO.getNome();
-        this.arrematado = false;
-        this.dataArrematado = null;
-        this.dataRegistro = new Date(System.currentTimeMillis());
-    }
-
-    public ProdutoModel(){
+    public ProdutoDTO(){
 
     }
 
-    public ProdutoModel(long id, String nome, boolean arrematado, Date dataArrematado, Date dataRegistro) {
+    public ProdutoDTO(long id, String nome, boolean arrematado, Date dataArrematado, Date dataRegistro, String username) {
         this.id = id;
         this.nome = nome;
         this.arrematado = arrematado;
         this.dataArrematado = dataArrematado;
         this.dataRegistro = dataRegistro;
+        this.username = username;
     }
 
     public long getId() {
@@ -91,4 +70,13 @@ public class ProdutoModel implements Serializable{
     public void setDataRegistro(Date dataRegistro) {
         this.dataRegistro = dataRegistro;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
 }

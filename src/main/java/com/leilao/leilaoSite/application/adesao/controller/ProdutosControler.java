@@ -2,7 +2,7 @@ package com.leilao.leilaoSite.application.adesao.controller;
 
 import com.leilao.leilaoSite.application.adesao.service.ProdutoLeiloarServiceImpl;
 import com.leilao.leilaoSite.domain.leilao.model.ProdutoModel;
-import com.leilao.leilaoSite.presentation.produto.dto.ProdutoLeiloarDTO;
+import com.leilao.leilaoSite.presentation.produto.dto.ProdutoDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/produtos-leiloar")
-public class ProdutosLeiloarControler {
+public class ProdutosControler {
     
     @Autowired
     private ProdutoLeiloarServiceImpl produtoLeiloarServiceImpl;
 
     @PostMapping
-    public ResponseEntity<ProdutoModel> salvarProdutoLeiloar(@RequestBody ProdutoLeiloarDTO produto){
+    public ResponseEntity<ProdutoModel> salvarProdutoLeiloar(@RequestBody ProdutoDTO produto){
         ProdutoModel tempProduto = produtoLeiloarServiceImpl.salvarProduto(produto);
 
         if(tempProduto != null){
@@ -32,12 +32,12 @@ public class ProdutosLeiloarControler {
     }
 
     @PatchMapping
-    public ProdutoModel update(@RequestBody ProdutoLeiloarDTO produtoDTO){
+    public ProdutoModel update(@RequestBody ProdutoDTO produtoDTO){
         return produtoLeiloarServiceImpl.update(produtoDTO);
     }
 
     @DeleteMapping
-    public ResponseEntity<?> delete(@RequestBody ProdutoLeiloarDTO produtoLeiloarDTO){
+    public ResponseEntity<?> delete(@RequestBody ProdutoDTO produtoLeiloarDTO){
         String msg = produtoLeiloarServiceImpl.delete(produtoLeiloarDTO.getId());
 
         return ResponseEntity.status(HttpStatus.OK).body(msg);

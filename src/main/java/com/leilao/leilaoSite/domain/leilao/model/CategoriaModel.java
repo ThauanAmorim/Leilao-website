@@ -5,17 +5,17 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Categoria {
+public class CategoriaModel {
     @Id
     @Column(name = "ID")
     private Long id;
     @Column(name = "CATEGORIA_NOME")
     private String categoriaNome;
 
-    public Categoria() {
+    public CategoriaModel() {
     }
 
-    public Categoria(Long id, String categoriaNome) {
+    public CategoriaModel(Long id, String categoriaNome) {
         this.id = id;
         this.categoriaNome = categoriaNome;
     }

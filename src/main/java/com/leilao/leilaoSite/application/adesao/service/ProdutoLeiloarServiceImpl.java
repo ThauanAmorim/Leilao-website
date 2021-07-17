@@ -7,7 +7,7 @@ import com.leilao.leilaoSite.domain.leilao.model.UserModel;
 import com.leilao.leilaoSite.domain.leilao.service.ProdutoLeiloarService;
 import com.leilao.leilaoSite.infrastructure.persistence.repository.produto.ProdutoLeiloarRepository;
 import com.leilao.leilaoSite.infrastructure.persistence.repository.user.UserRepository;
-import com.leilao.leilaoSite.presentation.produto.dto.ProdutoLeiloarDTO;
+import com.leilao.leilaoSite.presentation.produto.dto.ProdutoDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,7 +32,7 @@ public class ProdutoLeiloarServiceImpl implements ProdutoLeiloarService{
     }
 
     @Override
-    public ProdutoModel salvarProduto(ProdutoLeiloarDTO produtodto) {
+    public ProdutoModel salvarProduto(ProdutoDTO produtodto) {
         ProdutoModel produto = new ProdutoModel(produtodto);
         UserModel userRecuperado = userRepository.findByUsername(produtodto.getUsername());
 
@@ -43,17 +43,11 @@ public class ProdutoLeiloarServiceImpl implements ProdutoLeiloarService{
     }
 
     @Override
-    public ProdutoModel update(ProdutoLeiloarDTO produtoLeiloarDTO) {
+    public ProdutoModel update(ProdutoDTO produtoLeiloarDTO) {
         ProdutoModel produto = produtoLeiloarRepository.getById(produtoLeiloarDTO.getId());
 
-        if(produtoLeiloarDTO.getNomeProduto()!=null){
-            produto.setNome(produtoLeiloarDTO.getNomeProduto());
-        }
-        if(produtoLeiloarDTO.getDescricao()!=null){
-            produto.setDescricao(produtoLeiloarDTO.getDescricao());
-        }
-        if(produtoLeiloarDTO.getPreco()!=0){
-            produto.setpreco(produtoLeiloarDTO.getPreco());
+        if(produtoLeiloarDTO.getNome()!=null){
+            produto.setNome(produtoLeiloarDTO.getNome());
         }
 
         return produtoLeiloarRepository.save(produto);
