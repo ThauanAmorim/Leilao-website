@@ -17,7 +17,7 @@ import com.leilao.leilaoSite.presentation.produto.dto.ProdutoDTO;
 public class ProdutoModel implements Serializable{
     
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private long id;
 
