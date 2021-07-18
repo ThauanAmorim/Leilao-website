@@ -85,7 +85,7 @@ body {
     width: fit-content;
     font-size: 105%;
     margin-left: 7%;
-    margin-bottom: 10%;
+    margin-bottom: 2%;
 }
 
 .check-box {
@@ -98,6 +98,15 @@ body {
 }
 
 .botao-esqueceu-senha {
+    margin-top: 0%;
+    margin-right: 25%;
+    background: none;
+    float: right;
+    font-size: 105%;
+    border: 0;
+}
+
+.botao-nao-tenho-conta {
     margin-top: 0%;
     margin-right: 25%;
     background: none;

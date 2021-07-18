@@ -1,10 +1,12 @@
 
 const botaoLogin = document.getElementById("botao-logar");
+const botaoNaoTenhoConta = document.getElementById("botao-nao-tenho-conta");
 
 botaoLogin.addEventListener('click', logar);
+botaoNaoTenhoConta.addEventListener('click', irTelaCadastro);
+
 
 async function logar () {
-    //window.location.href = "../pages/Cadastrar.html";
     const rawResponse = await fetch('http://localhost:8080/api/login', {
     method: 'POST',
     headers: {
@@ -27,4 +29,8 @@ async function logar () {
   } else {
       console.log("algum erro maluco")
   }
+}
+
+function irTelaCadastro () {
+  window.location.href = "../pages/Cadastrar.html";
 }

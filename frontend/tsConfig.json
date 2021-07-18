@@ -2,7 +2,7 @@
     "compilerOptions" : {
         "target": "ES2019",
         "module": "CommonJS",
-        "lib": ["ESNext", "DOM"],
+        "lib": ["ESNext", "dom"],
         "outDir": "./src/typescript/compiled",
         "rootDir": "./src/typescript",
         "skipLibCheck": true,
