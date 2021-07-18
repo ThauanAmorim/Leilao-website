@@ -13,8 +13,8 @@ async function logar () {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({username: document.getElementById("usernameInput").value,
-    senha: document.getElementById("passwordInput").value})
+    body: JSON.stringify({username: (document.getElementById("usernameInput") as HTMLInputElement).value,
+    senha: (document.getElementById("passwordInput") as HTMLInputElement).value})
   });
   if (rawResponse.ok) {
     document.getElementById("usernameInput").style.border = null;
