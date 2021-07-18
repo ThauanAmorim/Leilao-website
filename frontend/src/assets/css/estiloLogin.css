@@ -1,0 +1,121 @@
+body {
+    background-image: url("../img/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: "Roboto", sans-serif;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.corpo {
+    width: 35%;
+    height: 400px;
+    margin: auto;
+    margin-top: 10%;
+    border-radius: 40px;
+    box-shadow: 0px 10px 15px #255c72;
+    background-color: rgba(196, 236, 244, 0.9);
+    background-blend-mode: normal;
+    mix-blend-mode: luminosity;
+}
+
+.imagem-person {
+    position: fixed;
+    margin-left: 13%;
+    margin-top: -5%;
+    width: 10%;
+}
+
+.imagem-email {
+    position: inherit;
+    margin-top: 20%;
+    margin-left: 10%;
+    height: 40px;
+}
+
+.username {
+    position: inherit;
+    width: 70%;
+    height: 50px;
+    margin-top: 20%;
+    margin-left: 15%;
+    padding-left: 2%;
+    font-size: 130%;
+    vertical-align: middle;
+    background: #2C6C86;
+    color: white;
+}
+
+.username::placeholder {
+    position: sticky;
+    color: white;
+    padding-left: 3%;
+    font-size: 110%;
+}
+
+.password {
+    position: inherit;
+    width: 70%;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 15%;
+    padding-left: 2%;
+    font-size: 130%;
+    vertical-align: middle;
+    background: #2C6C86;
+    color: white;
+}
+
+.password::placeholder {
+    position: sticky;
+    color: white;
+    padding-left: 3%;
+    font-size: 110%;
+}
+
+.check-box-button {
+    width: 20px;
+    height: 20px;
+    float: left;
+    background-color: #2C6C86;
+    color: #2C6C86;
+}
+
+.msg-lembrar-senha {
+    width: fit-content;
+    font-size: 105%;
+    margin-left: 7%;
+    margin-bottom: 10%;
+}
+
+.check-box {
+    position: inherit;
+    width: 100%;
+    margin-top: 17%;
+    margin-left: 15%;
+    margin-right: 0%;
+    margin-bottom: 0%;
+}
+
+.botao-esqueceu-senha {
+    margin-top: 0%;
+    margin-right: 25%;
+    background: none;
+    float: right;
+    font-size: 105%;
+    border: 0;
+}
+
+.botao-logar {
+    position: fixed;
+    margin-left: 42%;
+    height: 7%;
+    width: 15%;
+    border: none;
+    background: linear-gradient(180deg, #2C6C86 1%, rgba(196, 236, 244, 0.9));
+    border-radius: 0px 0px 30px 30px;
+    color: white;
+    font-size: 130%;
+    font-family: Roboto;
+    font-style: normal;
+}
