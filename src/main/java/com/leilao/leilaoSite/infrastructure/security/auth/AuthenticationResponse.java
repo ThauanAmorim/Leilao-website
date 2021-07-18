@@ -1,4 +1,4 @@
-package tech.klok.kear.hub.infrastructure.security.auth;
+package com.leilao.leilaoSite.infrastructure.security.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

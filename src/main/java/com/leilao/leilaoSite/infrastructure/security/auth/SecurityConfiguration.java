@@ -1,4 +1,7 @@
-package tech.klok.kear.hub.infrastructure.security.auth;
+package com.leilao.leilaoSite.infrastructure.security.auth;
+
+import com.leilao.leilaoSite.infrastructure.security.filter.JwtFilterRequest;
+import com.leilao.leilaoSite.infrastructure.security.service.UserServiceSecurity;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -12,14 +15,11 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import tech.klok.kear.hub.infrastructure.security.filter.JwtFilterRequest;
-import tech.klok.kear.hub.infrastructure.security.service.UserService;
-
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
     
     @Autowired
-    private UserService userService;
+    private UserServiceSecurity userService;
 
     @Autowired
     private JwtFilterRequest jwtFilterRequest;
@@ -31,7 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().authorizeRequests().antMatchers("/api/cadastrar", "/api/login").permitAll().anyRequest()
+        http.csrf().disable().authorizeRequests().antMatchers("/api/user", "/api/login").permitAll().anyRequest()
             .authenticated().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         
         http.addFilterBefore(jwtFilterRequest, UsernamePasswordAuthenticationFilter.class);

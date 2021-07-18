@@ -18,12 +18,13 @@ async function logar () {
     document.getElementById("usernameInput").style.border = null;
     document.getElementById("passwordInput").style.border = null;
     const content = await rawResponse.json();
-    window.localStorage.setItem("token", "123");
-    console.log(content);
+    window.localStorage.setItem("token", content["response"]);
+
   } else if(rawResponse.status == 400) {
     document.getElementById("usernameInput").style.border = "5px solid #ff0000";
     document.getElementById("passwordInput").style.border = "5px solid #ff0000";
     console.log(window.localStorage.getItem("token"));
+    
   } else {
       console.log("algum erro maluco")
   }

@@ -1,10 +1,14 @@
-package tech.klok.kear.hub.infrastructure.security.filter;
+package com.leilao.leilaoSite.infrastructure.security.filter;
 
 import java.io.IOException;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.leilao.leilaoSite.infrastructure.security.auth.JwtUtils;
+import com.leilao.leilaoSite.infrastructure.security.service.UserServiceSecurity;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -14,9 +18,6 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import tech.klok.kear.hub.infrastructure.security.auth.JwtUtils;
-import tech.klok.kear.hub.infrastructure.security.service.UserService;
-
 @Component
 public class JwtFilterRequest extends OncePerRequestFilter{
 
@@ -24,7 +25,7 @@ public class JwtFilterRequest extends OncePerRequestFilter{
     private JwtUtils jwtUtils;
 
     @Autowired
-    private UserService userService;
+    private UserServiceSecurity userService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)

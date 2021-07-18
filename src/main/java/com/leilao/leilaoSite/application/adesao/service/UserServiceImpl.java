@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService{
         return senhaCriptografada.equals(shar256(senha));
     }
     
-    private String shar256(String senha) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+    public String shar256(String senha) throws NoSuchAlgorithmException, UnsupportedEncodingException {
         MessageDigest messageDigest =  MessageDigest.getInstance("SHA-256");
         messageDigest.update(senha.getBytes("UTF-8"));
         return new BigInteger(1, messageDigest.digest()).toString(16);

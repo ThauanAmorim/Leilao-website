@@ -1,4 +1,4 @@
-package tech.klok.kear.hub.infrastructure.security.exception;
+package com.leilao.leilaoSite.infrastructure.security.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
