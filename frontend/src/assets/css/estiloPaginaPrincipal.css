@@ -13,6 +13,7 @@ body {
     position: relative;
     width: 30%;
     height: 10%;
+    margin-top: 1vh;
     margin-left: 3%;
     float: left;
 }
@@ -24,7 +25,7 @@ body {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    margin-left: 55%;
+    margin-left: 59%;
     margin-top: 1%;
 }
 
@@ -96,12 +97,11 @@ body {
 }
 
 .catalogo {
-    width: 60vw;
+    width: 68vw;
     height: 80vh;
     margin-left: 2%;
     margin-top: 1%;
     margin-bottom: 3%;
-    padding-left: 8%;
     float: left;
     display: block;
     overflow-y: auto;
@@ -115,12 +115,12 @@ body {
 }
 
 .catalogo-corpo {
-    width: 20%;
-    height: 50%;
-    align-items: center;
+    width: 25%;
+    height: 60%;
     float: left;
-    display: inline;
-    margin: 5%;
+    margin: 2%;
+    margin-left: 5%;
+    margin-top: 5%;
     background-color: rgb(136, 208, 252);
 }
 
