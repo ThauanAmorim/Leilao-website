@@ -4,7 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
-import com.leilao.leilaoSite.application.adesao.service.UserServiceImpl;
+import com.leilao.leilaoSite.application.adesao.service.UserService;
 import com.leilao.leilaoSite.domain.leilao.model.UserModel;
 import com.leilao.leilaoSite.presentation.user.UserDTO;
 
@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     @Autowired
-    private UserServiceImpl userServiceImpl;
+    private UserService userServiceImpl;
 
     @PostMapping
     public ResponseEntity<UserModel> salvarUser(@RequestBody UserDTO userDTO) throws NoSuchAlgorithmException, UnsupportedEncodingException {

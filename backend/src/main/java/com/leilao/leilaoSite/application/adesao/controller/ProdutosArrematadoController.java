@@ -1,6 +1,6 @@
 package com.leilao.leilaoSite.application.adesao.controller;
 
-import com.leilao.leilaoSite.application.adesao.service.ProdutoArrematadoServiceImpl;
+import com.leilao.leilaoSite.application.adesao.service.ProdutoArrematadoService;
 import com.leilao.leilaoSite.domain.leilao.model.ProdutoModel;
 import com.leilao.leilaoSite.presentation.produto.dto.ProdutoArrematadoDTO;
 
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProdutosArrematadoController {
     
     @Autowired
-    private ProdutoArrematadoServiceImpl produtoArrematadoServiceImpl;
+    private ProdutoArrematadoService produtoArrematadoServiceImpl;
 
     @PostMapping
     public ResponseEntity<ProdutoModel> salvarProdutoArrematado(@RequestBody ProdutoArrematadoDTO  produtoDTO){

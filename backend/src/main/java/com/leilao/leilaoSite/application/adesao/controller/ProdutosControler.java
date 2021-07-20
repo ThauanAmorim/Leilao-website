@@ -1,6 +1,6 @@
 package com.leilao.leilaoSite.application.adesao.controller;
 
-import com.leilao.leilaoSite.application.adesao.service.ProdutoLeiloarServiceImpl;
+import com.leilao.leilaoSite.application.adesao.service.ProdutoLeiloarService;
 import com.leilao.leilaoSite.domain.leilao.model.ProdutoModel;
 import com.leilao.leilaoSite.presentation.produto.dto.ProdutoDTO;
 
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProdutosControler {
     
     @Autowired
-    private ProdutoLeiloarServiceImpl produtoLeiloarServiceImpl;
+    private ProdutoLeiloarService produtoLeiloarServiceImpl;
 
     @PostMapping
     public ResponseEntity<ProdutoModel> salvarProdutoLeiloar(@RequestBody ProdutoDTO produto){

@@ -2,7 +2,7 @@ package com.leilao.leilaoSite.application.adesao.controller;
 
 import java.util.List;
 
-import com.leilao.leilaoSite.application.adesao.service.AdminServiceImpl;
+import com.leilao.leilaoSite.application.adesao.service.AdminService;
 import com.leilao.leilaoSite.domain.leilao.model.UserModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AdminController {
 
     @Autowired
-    private AdminServiceImpl adminServiceImpl;
+    private AdminService adminServiceImpl;
 
     @GetMapping
     public ResponseEntity<List<UserModel>> pegarTodosOsAdmins() {

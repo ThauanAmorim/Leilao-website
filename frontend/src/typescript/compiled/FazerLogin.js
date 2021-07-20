@@ -1,7 +1,7 @@
 const botaoLogin = document.getElementById("botao-logar");
 const botaoNaoTenhoConta = document.getElementById("botao-nao-tenho-conta");
-botaoLogin.addEventListener('click', logar);
 botaoNaoTenhoConta.addEventListener('click', irTelaCadastro);
+botaoLogin.addEventListener('click', logar);
 async function logar() {
     const rawResponse = await fetch('http://localhost:8080/api/login', {
         method: 'POST',
@@ -19,14 +19,14 @@ async function logar() {
         window.localStorage.setItem("token", content["response"]);
     }
     else if (rawResponse.status == 400) {
-        document.getElementById("usernameInput").style.border = "5px solid #ff0000";
-        document.getElementById("passwordInput").style.border = "5px solid #ff0000";
+        document.getElementById("usernameInput").style.border = "5px solid red";
+        document.getElementById("passwordInput").style.border = "5px solid red";
         console.log(window.localStorage.getItem("token"));
     }
     else {
         console.log("algum erro maluco");
     }
 }
-function irTelaCadastro() {
+async function irTelaCadastro() {
     window.location.href = "../pages/Cadastrar.html";
 }

@@ -1,6 +1,6 @@
 package com.leilao.leilaoSite.application.adesao.controller;
 
-import com.leilao.leilaoSite.application.adesao.service.LoginServiceImpl;
+import com.leilao.leilaoSite.application.adesao.service.LoginService;
 import com.leilao.leilaoSite.domain.leilao.model.UserModel;
 import com.leilao.leilaoSite.presentation.authentication.dto.LoginDTO;
 import com.leilao.leilaoSite.presentation.authentication.exception.CredenciaisInvalidasException;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 public class LoginController {
     @Autowired
-    private LoginServiceImpl loginServiceImpl;
+    private LoginService loginServiceImpl;
 
     @PostMapping
     public ResponseEntity<?> login(@RequestBody LoginDTO loginDTO) {

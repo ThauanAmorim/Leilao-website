@@ -115,4 +115,8 @@ public class LeilaoModel {
     public void setListaProdutos(List<ProdutoModel> listaProdutos) {
         this.listaProdutos = listaProdutos;
     }
+
+    public void addProduto(ProdutoModel produto) {
+        this.listaProdutos.add(produto);
+    } 
 }
