@@ -5,11 +5,11 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     font-family: "Roboto", sans-serif;
-    overflow-y: scroll;
+    overflow-y: hidden;
     overflow-x: hidden;
 }
 
-#imagemLogo{
+#imagemLogo {
     position: relative;
     width: 30%;
     height: 10%;
@@ -17,107 +17,104 @@ body {
     float: left;
 }
 
-.botao-login{
+.botao-login {
     position: relative;
     width: 6%;
     height: 6%;
     background-color: transparent;
     border: none;
-    cursor:pointer;
+    cursor: pointer;
     margin-left: 55%;
     margin-top: 1%;
 }
 
-#imagemBotaoLogin{
+#imagemBotaoLogin {
     width: 100%;
     height: 100%;
 }
 
-.cabecalho{
+.cabecalho {
     width: 100%;
     display: flexbox;
 }
 
-.categorias{
-    width: 30%;
-    height: 100%;
+.categorias {
+    width: 25%;
+    height: 80vh;
     margin-left: 2%;
-    margin-top: 3%;
+    margin-top: 1%;
     margin-bottom: 3%;
     float: left;
     display: flexbox;
-
     background: rgb(136, 207, 252);
     mix-blend-mode: luminosity;
-    border-radius: 70px;
+    border-radius: 50px;
 }
 
-.div-texto-sup-menu{
+.div-texto-sup-menu {
     width: 70%;
-    height: 70px;
+    height: 4vw;
     margin-left: 15%;
     text-align: center;
     vertical-align: middle;
-
-    background-color: rgb(0, 255, 255);;
+    background-color: rgb(0, 255, 255);
+    ;
     mix-blend-mode: normal;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
     border-radius: 70px 0px;
 }
 
-.texto-sup-menu{
+.texto-sup-menu {
     width: 50%;
     height: 50px;
     padding-top: 5%;
-    padding-left: 25%;
-    font-size: x-large;
-
+    padding-left: 15%;
+    font-size: 2vw;
 }
 
-.menu{
+.menu {
     width: 80%;
-    height: 400px;
+    height: 60vh;
     margin-top: 10%;
     margin-left: 15%;
-
-    
-
+    overflow-y: scroll;
 }
 
-#opcao{
-    width: 80%;
-    height: 10%;
+#opcao {
+    width: 85%;
+    height: 3vw;
     margin-top: 7%;
-    margin-left: 4%;
-
+    margin-left: 2%;
     text-align: center;
     display: block;
-
-    font-size: x-large;
+    font-size: 3vh;
+    padding-top: 5%;
     background: #E7E7E7;
     mix-blend-mode: luminosity;
     border-radius: 10px;
-
     text-decoration: none;
 }
 
-.catalogo{
-    width: 55%;
-    height: 535px;
+.catalogo {
+    width: 60vw;
+    height: 80vh;
     margin-left: 2%;
-    margin-top: 3%;
+    margin-top: 1%;
     margin-bottom: 3%;
     padding-left: 8%;
     float: left;
     display: block;
-    overflow-y: scroll;
-
+    overflow-y: auto;
     background: rgba(136, 208, 252, 0.781);
     mix-blend-mode: luminosity;
-    border-radius: 70px;
+    border-radius: 50px;
 }
 
-.catalogo-corpo{
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+.catalogo-corpo {
     width: 20%;
     height: 50%;
     align-items: center;
@@ -126,7 +123,6 @@ body {
     margin: 5%;
     background-color: rgb(136, 208, 252);
 }
-
 
 
 /*
@@ -148,4 +144,3 @@ body {
     opacity: 0.7;
 }
 */
-
