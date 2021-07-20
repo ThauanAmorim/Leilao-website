@@ -1,6 +1,7 @@
 package com.leilao.leilaoSite.domain.leilao.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -68,8 +69,28 @@ public class UserModel implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name =  "PRODUTOS_LEILOAR_FK")
 	private List<ProdutoModel> produtosLeiloar;
+
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name =  "LISTA_LEILAO_FK")
+	private List<LeilaoModel> listaLeilao;
 	
 	public UserModel() {
+	}
+	
+	public UserModel(Long id, String username, String email, String password, String cPF, boolean isAdmin,
+			Date dataNascimento, EnderecoModel endereco, List<ProdutoModel> produtosArrematado,
+			List<ProdutoModel> produtosLeiloar, List<LeilaoModel> listaLeilao) {
+		this.id = id;
+		this.username = username;
+		this.email = email;
+		this.password = password;
+		CPF = cPF;
+		this.isAdmin = isAdmin;
+		this.dataNascimento = dataNascimento;
+		this.endereco = endereco;
+		this.produtosArrematado = produtosArrematado;
+		this.produtosLeiloar = produtosLeiloar;
+		this.listaLeilao = listaLeilao;
 	}
 
 	public UserModel (UserDTO userDTO) {
@@ -226,11 +247,22 @@ public class UserModel implements Serializable {
 		this.produtosLeiloar = produtosLeiloar;
 	}
 	
+	public List<LeilaoModel> getListaLeilao() {
+		return listaLeilao;
+	}
+
+	public void setListaLeilao(List<LeilaoModel> listaLeilao) {
+		this.listaLeilao = listaLeilao;
+	}
+
 	public void addProdutoLeiloar (ProdutoModel produtoModel) {
 		produtosLeiloar.add(produtoModel);
 	}
 
 	public void addProdutoArrematado (ProdutoModel produtoModel) {
 		produtosArrematado.add(produtoModel);
+	}
+	public void addLeilao(LeilaoModel leilao) {
+		this.listaLeilao.add(leilao);
 	}
 }

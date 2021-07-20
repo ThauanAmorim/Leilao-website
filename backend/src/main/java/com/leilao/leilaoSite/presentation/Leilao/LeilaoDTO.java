@@ -1,12 +1,16 @@
-package com.leilao.leilaoSite.presentation.Leilao;
+package com.leilao.leilaoSite.presentation.leilao;
 
+import java.sql.Date;
 import java.util.List;
 
 public class LeilaoDTO {
     private float valorInicial;
     private float valorMeta;
+    private String usernameDono;
     private String descricao;
-    private int categoria;
+    private Long categoria;
+    private Date dataInicio;
+    private Date dataTermino;
     private List<Long> listaProdutos;
 
     public float getValorInicial() {
@@ -27,10 +31,10 @@ public class LeilaoDTO {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    public int getCategoria() {
+    public Long getCategoria() {
         return categoria;
     }
-    public void setCategoria(int categoria) {
+    public void setCategoria(Long categoria) {
         this.categoria = categoria;
     }
     public List<Long> getListaProdutos() {
@@ -38,5 +42,23 @@ public class LeilaoDTO {
     }
     public void setListaProdutos(List<Long> listaProdutos) {
         this.listaProdutos = listaProdutos;
+    }
+    public String getUsernameDono() {
+        return usernameDono;
+    }
+    public void setUsernameDono(String usernameDono) {
+        this.usernameDono = usernameDono;
+    }
+    public Date getDataInicio() {
+        return dataInicio;
+    }
+    public void setDataInicio(Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+    public Date getDataTermino() {
+        return dataTermino;
+    }
+    public void setDataTermino(Date dataTermino) {
+        this.dataTermino = dataTermino;
     }
 }

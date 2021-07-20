@@ -1,5 +1,6 @@
 package com.leilao.leilaoSite.domain.leilao.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.leilao.leilaoSite.presentation.leilao.LeilaoDTO;
+
 @Entity
 @Table(name = "TB_LEILAO")
 public class LeilaoModel {
@@ -24,6 +27,8 @@ public class LeilaoModel {
     private Date dataRegistro;
     @Column(name = "DATA_INICIO")
     private Date dataInicio;
+    @Column(name = "DATA_TERMINO")
+    private Date dataTermino;
     @Column(name = "VALOR_INICIAL")
     private float valorInicial;
     @Column(name = "VALOR_META")
@@ -38,13 +43,24 @@ public class LeilaoModel {
     private List<ProdutoModel> listaProdutos;
     
     public LeilaoModel() {
+        dataRegistro = new Date(System.currentTimeMillis());
     }
 
-    public LeilaoModel(Long id, Date dataRegistro, Date dataInicio, float valorInicial, float valorMeta,
-            String descricao, CategoriaModel categoria, List<ProdutoModel> listaProdutos) {
+    public LeilaoModel(LeilaoDTO dto) {
+        this.dataRegistro = new Date(System.currentTimeMillis());
+        this.dataInicio = dto.getDataInicio();
+        this.dataTermino = dto.getDataTermino();
+        this.descricao = dto.getDescricao();
+        this.valorInicial = dto.getValorInicial();
+        this.valorMeta = dto.getValorMeta();
+    }
+
+    public LeilaoModel(Long id, Date dataRegistro, Date dataInicio, Date dataTermino, float valorInicial,
+            float valorMeta, String descricao, CategoriaModel categoria, List<ProdutoModel> listaProdutos) {
         this.id = id;
         this.dataRegistro = dataRegistro;
         this.dataInicio = dataInicio;
+        this.dataTermino = dataTermino;
         this.valorInicial = valorInicial;
         this.valorMeta = valorMeta;
         this.descricao = descricao;
@@ -84,6 +100,14 @@ public class LeilaoModel {
         this.valorInicial = valorInicial;
     }
 
+    public Date getDataTermino() {
+        return dataTermino;
+    }
+
+    public void setDataTermino(Date dataTermino) {
+        this.dataTermino = dataTermino;
+    }
+
     public float getValorMeta() {
         return valorMeta;
     }
@@ -117,6 +141,7 @@ public class LeilaoModel {
     }
 
     public void addProduto(ProdutoModel produto) {
+        if(listaProdutos == null) listaProdutos = new ArrayList<>();
         this.listaProdutos.add(produto);
     } 
 }
