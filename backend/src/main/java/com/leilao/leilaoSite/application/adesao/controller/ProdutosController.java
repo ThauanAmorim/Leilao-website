@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/produtos-leiloar")
-public class ProdutosControler {
+public class ProdutosController {
     
     @Autowired
     private ProdutoLeiloarService produtoLeiloarServiceImpl;

@@ -3,8 +3,6 @@ package com.leilao.leilaoSite.application.adesao.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.ws.Response;
-
 import com.leilao.leilaoSite.application.adesao.service.LeilaoService;
 import com.leilao.leilaoSite.domain.leilao.model.LeilaoModel;
 import com.leilao.leilaoSite.infrastructure.exceptions.DadosObrigatoriosFaltandoException;
