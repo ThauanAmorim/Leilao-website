@@ -17,6 +17,7 @@ async function logar() {
         document.getElementById("passwordInput").style.border = null;
         const content = await rawResponse.json();
         window.localStorage.setItem("token", content["response"]);
+        console.log(content["response"]);
     }
     else if (rawResponse.status == 400) {
         document.getElementById("usernameInput").style.border = "5px solid red";
