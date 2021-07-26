@@ -114,14 +114,26 @@ body {
     width: 0px;
 }
 
-.catalogo-corpo {
+.item_catalogo {
     width: 25%;
     height: 60%;
     float: left;
     margin: 2%;
     margin-left: 5%;
     margin-top: 5%;
+    border-radius: 10px;
     background-color: rgb(136, 208, 252);
+}
+
+.imagens {
+    width: 80%;
+    height: 20vh;
+    float: left;
+    margin: 2%;
+    margin-left: 10%;
+    margin-top: 5%;
+    border-radius: 10px;
+    background-color: rgb(1, 24, 29);
 }
 
 
