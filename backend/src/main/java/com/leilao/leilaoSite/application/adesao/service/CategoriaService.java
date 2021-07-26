@@ -1,10 +1,13 @@
 package com.leilao.leilaoSite.application.adesao.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.leilao.leilaoSite.application.adesao.service.AdminService;
 import com.leilao.leilaoSite.domain.leilao.model.CategoriaModel;
 import com.leilao.leilaoSite.domain.leilao.model.UserModel;
+import com.leilao.leilaoSite.infrastructure.exceptions.DadosObrigatoriosFaltandoException;
+import com.leilao.leilaoSite.infrastructure.exceptions.NaoEncontradoException;
 import com.leilao.leilaoSite.infrastructure.persistence.repository.categoria.CategoriaRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,19 +27,23 @@ public class CategoriaService {
     @Autowired
     private CategoriaRepository categoriaRepository;
 
-    public void salvar(CategoriaModel categoria) throws Exception{
-        if(categoria.getCategoriaNome!=null){
+    public void salvar(CategoriaModel categoria) throws DadosObrigatoriosFaltandoException{
+        if(categoria.getCategoriaNome()!=null){
             categoriaRepository.save(categoria);
         }
-        throw new Exception();
+        throw new DadosObrigatoriosFaltandoException();
     }
 
     
-    public CategoriaModel recuperarPeloId(Long idCategoria){
-        return categoriaRepository.findById(idCategoria);
+    public CategoriaModel recuperarPeloId(Long idCategoria) throws NaoEncontradoException {
+        Optional<CategoriaModel> categoriaOp = categoriaRepository.findById(idCategoria);
+        if(categoriaOp == null) throw new NaoEncontradoException();
+        return categoriaOp.get();
     }
 
-    public CategoriaModel recuperaTodasCategorias(){
-        return categoriaRepository.findAll();
+    public List<CategoriaModel> recuperaTodasCategorias() throws NaoEncontradoException {
+        List<CategoriaModel> lista = categoriaRepository.findAll();
+        if(lista == null) throw new NaoEncontradoException();
+        return lista;
     }
 }

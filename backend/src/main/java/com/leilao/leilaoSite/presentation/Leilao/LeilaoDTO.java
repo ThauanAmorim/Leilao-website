@@ -6,7 +6,9 @@ import java.util.List;
 public class LeilaoDTO {
     private float valorInicial;
     private float valorMeta;
+    private float valorAtual;
     private String usernameDono;
+    private String usernameUltimoLance;
     private String descricao;
     private Long categoria;
     private Date dataInicio;
@@ -60,5 +62,17 @@ public class LeilaoDTO {
     }
     public void setDataTermino(Date dataTermino) {
         this.dataTermino = dataTermino;
+    }
+    public float getValorAtual() {
+        return valorAtual;
+    }
+    public void setValorAtual(float valorAtual) {
+        this.valorAtual = valorAtual;
+    }
+    public String getUsernameUltimoLance() {
+        return usernameUltimoLance;
+    }
+    public void setUsernameUltimoLance(String usernameUltimoLance) {
+        this.usernameUltimoLance = usernameUltimoLance;
     }
 }

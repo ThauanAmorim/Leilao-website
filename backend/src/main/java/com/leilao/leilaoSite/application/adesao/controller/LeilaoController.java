@@ -46,7 +46,7 @@ public class LeilaoController {
     public ResponseEntity<?> getAll() {
         try {
             List<LeilaoModel> listaLeilao = leilaoService.get();    
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(listaLeilao);
+            return ResponseEntity.status(HttpStatus.OK).body(listaLeilao);
             
         } catch (NaoEncontradoException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);

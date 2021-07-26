@@ -31,6 +31,10 @@ public class LeilaoModel {
     private Date dataTermino;
     @Column(name = "VALOR_INICIAL")
     private float valorInicial;
+    @Column(name = "VALOR_ATUAL")
+    private float valorAtual;
+    @Column(name = "USERNAME_ULTIMO_LANCE")
+    private String usernameUltimoLance;
     @Column(name = "VALOR_META")
     private float valorMeta;
     @Column(name = "DESCRICAO")
@@ -56,12 +60,15 @@ public class LeilaoModel {
     }
 
     public LeilaoModel(Long id, Date dataRegistro, Date dataInicio, Date dataTermino, float valorInicial,
-            float valorMeta, String descricao, CategoriaModel categoria, List<ProdutoModel> listaProdutos) {
+            float valorAtual, String usernameUltimoLance, float valorMeta, String descricao, CategoriaModel categoria,
+            List<ProdutoModel> listaProdutos) {
         this.id = id;
         this.dataRegistro = dataRegistro;
         this.dataInicio = dataInicio;
         this.dataTermino = dataTermino;
         this.valorInicial = valorInicial;
+        this.valorAtual = valorAtual;
+        this.usernameUltimoLance = usernameUltimoLance;
         this.valorMeta = valorMeta;
         this.descricao = descricao;
         this.categoria = categoria;
@@ -138,6 +145,22 @@ public class LeilaoModel {
 
     public void setListaProdutos(List<ProdutoModel> listaProdutos) {
         this.listaProdutos = listaProdutos;
+    }
+
+    public float getValorAtual() {
+        return valorAtual;
+    }
+
+    public void setValorAtual(float valorAtual) {
+        this.valorAtual = valorAtual;
+    }
+
+    public String getUsernameUltimoLance() {
+        return usernameUltimoLance;
+    }
+
+    public void setUsernameUltimoLance(String usernameUltimoLance) {
+        this.usernameUltimoLance = usernameUltimoLance;
     }
 
     public void addProduto(ProdutoModel produto) {
