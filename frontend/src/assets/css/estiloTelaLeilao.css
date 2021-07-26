@@ -1,0 +1,50 @@
+body {
+    background-image: url("../img/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: "Roboto", sans-serif;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.corpo {
+    width: 50%;
+    height: 600px;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 40px;
+    box-shadow: 0px 10px 15px #255c72;
+    background-color: rgba(196, 236, 244, 0.9);
+    background-blend-mode: normal;
+    mix-blend-mode: luminosity;
+}
+
+.titulo{
+    text-align: center;
+    color:rgba(3, 124, 180, 0.9)
+}
+
+#idDoLeilao, #idDoProduto, #nomeDoProduto, #DescricaoDoLeilao, #valorUltimoLance, #NomeDoUltimo, #valorDoLance{
+    width: 45%;
+    height: 30px;
+
+    display: inline-block;
+    margin-top: 4%;
+    margin-left: 25%;
+    text-align: center;
+    color:rgba(3, 124, 180, 0.9);
+}
+
+#botaoLance {
+    position: fixed;
+    margin-left: 42%;
+    height: 7%;
+    width: 15%;
+    border: none;
+    background: linear-gradient(180deg, #2C6C86 1%, rgba(196, 236, 244, 0.9));
+    border-radius: 0px 0px 30px 30px;
+    color: white;
+    font-size: 130%;
+    font-family: Roboto;
+    font-style: normal;
+}
