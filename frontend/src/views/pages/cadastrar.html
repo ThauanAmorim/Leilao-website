@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,34 +11,34 @@
 
     <title>Leilão Online - Cadastrar</title>
 </head>
+
 <body>
-    
+
     <div class="corpo">
         <img class="imagem-person" src="../../assets/img/Person.png" alt="">
-        
-        <form action="" method="POST">
-            
-            <input type="text" class="username" name="username" id="" placeholder="Username">
-            
-            <input type="email" class="email" name="email" placeholder="Email">
 
-            <input type="date" name="data" class="data">
+        <input type="text" id="username" class="username" name="username" placeholder="Username">
 
-            <input type="text" name="cpf" class="cpf" placeholder="999.999.999-99">
-            <script type="text/javascript">
-                jQuery(function($){
-                    $("#cpf").mask("999.999.999-99")
-                });
-            </script>
-            
-            <input type="password" class="password" name="password" placeholder="Senha">
+        <input type="email" id="email" class="email" name="email" placeholder="Email">
 
-            <input type="password" class="confirmar-senha" name="confirmar-senha" placeholder="Confirmar Senha">
-            
-            <button class="botao-tem-conta">Ja tem uma conta?</button>  
-        </form>
-    </div> 
-    <button type="submit" class="botao-cadastrar">Cadastrar</button>
-    
+        <input type="date" id="data" name="data" class="data">
+
+        <input type="text" id="cpf" name="cpf" class="cpf" placeholder="999.999.999-99">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript">
+            $(document).ready(function($) {
+                $("#cpf").mask("999.999.999-99")
+            });
+        </script>
+
+        <input type="password" id="password" class="password" name="password" placeholder="Senha">
+
+        <input type="password" id="confirmar-password" class="confirmar-senha" name="confirmar-senha" placeholder="Confirmar Senha">
+
+        <button id="botao-tem-conta-id" class="botao-tem-conta">Ja tem uma conta?</button>
+    </div>
+    <button id="botao-cadastrar-id" class="botao-cadastrar">Cadastrar</button>
+    <script type="text/javascript" src="../../typescript/compiled/CadastrarUser.js"></script>
+
 </body>
+
 </html>
