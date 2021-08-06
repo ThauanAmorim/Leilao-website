@@ -9,9 +9,9 @@ body {
 
 .corpo{
     width: 50%;
-    height: 450px;
+    height: 520px;
     margin: auto;
-    margin-top: 5%;
+    margin-top: 4%;
     border-radius: 40px;
     box-shadow: 0px 10px 15px #255c72;
     background-color: rgba(196, 236, 244, 0.9);
@@ -26,7 +26,7 @@ body {
 
 #listaProdutos{
     width: 80%;
-    height: 150px;
+    height: 100px;
     margin-top: 2%;
     margin-left: 7%;
     overflow-x: hidden;
@@ -36,14 +36,20 @@ body {
     background-color: rgba(178, 232, 243, 0.9);
 }
 
-#lbPreco{
-    width: 7%;
-    height: 20px;
+#descricao{
     margin-top: 2%;
-    margin-left: 30%;
+    margin-left: 7%;
+    
 }
 
-#preco{
+#valorInicial{
+    width: 20%;
+    height: 20px;
+    margin-top: 2%;
+    margin-left: 26%;
+}
+
+#valorMeta{
     width: 20%;
     height: 20px;
     margin-top: 2%;
@@ -60,7 +66,7 @@ body {
 #inputHComecar{
     width: 12%;
     height: 22px;
-    margin-top: 4%;
+    margin-top: 3%;
     margin-left: 2%;
     
 }
@@ -68,16 +74,13 @@ body {
 #lbHTerminar{
     width: 12%;
     height: 22px;
-    margin-top: 4%;
     margin-left: 30%;
 }
 
 #inputHTerminar{
     width: 12%;
     height: 22px;
-    margin-top: 4%;
-    margin-left: 2%;
-    
+    margin-top: 3%;
 }
 
 #botao-Leiloar{
