@@ -31,24 +31,6 @@ body {
     margin-left: 25%;
 }
 
-#menuDeCategorias{
-    width: 60%;
-    height: 50px;
-    margin-top: 10%;
-    margin-left: 20%;
-    
-}
-
-#lb-categorias{
-    width: 60%;
-    height: 40px;
-}
-
-#categoria{
-    width: 45%;
-    height: 30px;
-}
-
 #nome{
     padding-left: 2%;
     font-size: 130%;
