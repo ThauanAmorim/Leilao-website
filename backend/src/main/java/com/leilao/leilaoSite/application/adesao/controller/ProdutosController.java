@@ -1,5 +1,7 @@
 package com.leilao.leilaoSite.application.adesao.controller;
 
+import java.security.Principal;
+
 import com.leilao.leilaoSite.application.adesao.service.ProdutoLeiloarService;
 import com.leilao.leilaoSite.domain.leilao.model.ProdutoModel;
 import com.leilao.leilaoSite.presentation.produto.dto.ProdutoDTO;
@@ -7,6 +9,7 @@ import com.leilao.leilaoSite.presentation.produto.dto.ProdutoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,13 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/produtos-leiloar")
+@CrossOrigin
 public class ProdutosController {
     
     @Autowired
     private ProdutoLeiloarService produtoLeiloarServiceImpl;
 
     @PostMapping
-    public ResponseEntity<ProdutoModel> salvarProdutoLeiloar(@RequestBody ProdutoDTO produto){
+    public ResponseEntity<ProdutoModel> salvarProdutoLeiloar(@RequestBody ProdutoDTO produto, Principal principal){
+        produto.setUsername(principal.getName());
         ProdutoModel tempProduto = produtoLeiloarServiceImpl.salvarProduto(produto);
 
         if(tempProduto != null){
