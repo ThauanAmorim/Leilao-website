@@ -21,12 +21,11 @@ async function logar () {
     document.getElementById("passwordInput").style.border = null;
     const content = await rawResponse.json();
     window.localStorage.setItem("token", content["response"]);
-    console.log(content["response"])
+    window.location.href = "../pages/main.html";
     
   } else if(rawResponse.status == 400) {
     document.getElementById("usernameInput").style.border = "5px solid red";
     document.getElementById("passwordInput").style.border = "5px solid red";
-    console.log(window.localStorage.getItem("token"));
     
   } else {
       console.log("algum erro maluco")

@@ -30,8 +30,10 @@ public class CategoriaService {
     public void salvar(CategoriaModel categoria) throws DadosObrigatoriosFaltandoException{
         if(categoria.getCategoriaNome()!=null){
             categoriaRepository.save(categoria);
+        } else {
+            throw new DadosObrigatoriosFaltandoException();
+
         }
-        throw new DadosObrigatoriosFaltandoException();
     }
 
     
