@@ -1,5 +1,6 @@
 package com.leilao.leilaoSite.application.adesao.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.leilao.leilaoSite.domain.leilao.model.ProdutoModel;
@@ -11,6 +12,8 @@ import com.leilao.leilaoSite.presentation.produto.dto.ProdutoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javassist.NotFoundException;
+
 @Service
 public class ProdutoLeiloarService{
 
@@ -20,12 +23,20 @@ public class ProdutoLeiloarService{
     @Autowired
     private UserRepository userRepository;
 
-    public List<ProdutoModel> getAllProduto(String name) {
+    public List<ProdutoModel> getAllProduto() {
         return produtoLeiloarRepository.findAll();
     }
 
     public ProdutoModel findProductByName(String name) {
         return this.produtoLeiloarRepository.findProductByName(name);
+    }
+
+    public List<ProdutoModel> findByUser(String username) throws NotFoundException {
+
+        List<ProdutoModel> listaProdutos = userRepository.findByUsername(username).getProdutosLeiloar();
+        if(listaProdutos.isEmpty()) throw new NotFoundException("Não encontrado");
+
+        return listaProdutos;
     }
 
     public ProdutoModel salvarProduto(ProdutoDTO produtodto) {

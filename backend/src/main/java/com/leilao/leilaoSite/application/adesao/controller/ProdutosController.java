@@ -11,11 +11,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javassist.NotFoundException;
 
 @RestController
 @RequestMapping("/api/produtos-leiloar")
@@ -46,5 +49,15 @@ public class ProdutosController {
         String msg = produtoLeiloarServiceImpl.delete(produtoLeiloarDTO.getId());
 
         return ResponseEntity.status(HttpStatus.OK).body(msg);
+    }
+
+    @GetMapping
+    public ResponseEntity<?> getByUsername(Principal principal) {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(produtoLeiloarServiceImpl.findByUser(principal.getName()));
+            
+        } catch (NotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
     }
 }
