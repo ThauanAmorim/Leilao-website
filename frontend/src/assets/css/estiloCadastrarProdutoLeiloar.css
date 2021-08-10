@@ -77,21 +77,31 @@ body {
     width: 13%;
     height: 22px;
     margin-top: 4%;
-    margin-left: 30%;
+    margin-left: 20%;
+}
+
+#inputDComecar{
+    width: 21%;
+    height: 22px;
+    margin-top: 3%;
 }
 
 #inputHComecar{
     width: 12%;
     height: 22px;
     margin-top: 3%;
-    margin-left: 2%;
-    
 }
 
 #lbHTerminar{
     width: 12%;
     height: 22px;
-    margin-left: 30%;
+    margin-left: 20%;
+}
+
+#inputDTerminar{
+    width: 21%;
+    height: 22px;
+    margin-top: 3%;
 }
 
 #inputHTerminar{
