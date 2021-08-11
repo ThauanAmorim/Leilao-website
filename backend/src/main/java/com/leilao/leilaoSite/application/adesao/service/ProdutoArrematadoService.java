@@ -1,5 +1,6 @@
 package com.leilao.leilaoSite.application.adesao.service;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -37,7 +38,7 @@ public class ProdutoArrematadoService {
             UserModel userModel = userRepository.findByUsername(produtodto.getUsername());
 
             produtoModel.get().setArrematado(true);
-            produtoModel.get().setDataArrematado(new Date(System.currentTimeMillis()));
+            produtoModel.get().setDataArrematado(LocalDateTime.now());
     
             userModel.addProdutoArrematado(produtoModel.get());
 

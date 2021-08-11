@@ -1,6 +1,7 @@
 package com.leilao.leilaoSite.domain.leilao.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -54,9 +55,8 @@ public class UserModel implements Serializable {
 	@Column(name = "IS_ADMIN")
 	private boolean isAdmin;
 	
-	@Temporal(TemporalType.DATE)
 	@Column(name = "DATA_NASCIMENTO", nullable = false)
-	private Date dataNascimento;
+	private LocalDate dataNascimento;
 	
 	@OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
 	@JoinColumn(name = "ENDERECO_FK")
@@ -78,7 +78,7 @@ public class UserModel implements Serializable {
 	}
 	
 	public UserModel(Long id, String username, String email, String password, String cPF, boolean isAdmin,
-			Date dataNascimento, EnderecoModel endereco, List<ProdutoModel> produtosArrematado,
+			LocalDate dataNascimento, EnderecoModel endereco, List<ProdutoModel> produtosArrematado,
 			List<ProdutoModel> produtosLeiloar, List<LeilaoModel> listaLeilao) {
 		this.id = id;
 		this.username = username;
@@ -126,8 +126,7 @@ public class UserModel implements Serializable {
 		if (dataNascimento == null) {
 			if (other.dataNascimento != null)
 				return false;
-		} else if (!removeTime(dataNascimento).equals(removeTime(other.dataNascimento)))
-			return false;
+		}
 		if (email == null) {
 			if (other.email != null)
 				return false;
@@ -149,16 +148,6 @@ public class UserModel implements Serializable {
 		} else if (!password.equals(other.password))
 			return false;
 		return true;
-	}
-
-	private Date removeTime(Date date) {
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(date);
-		cal.set(Calendar.HOUR_OF_DAY, 0);
-		cal.set(Calendar.MINUTE, 0);
-		cal.set(Calendar.SECOND, 0);
-		cal.set(Calendar.MILLISECOND, 0);
-		return cal.getTime();
 	}
 
 	@Override
@@ -215,11 +204,11 @@ public class UserModel implements Serializable {
 		this.isAdmin = isAdmin;
 	}
 
-	public Date getDataNascimento() {
+	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(Date dataNascimento) {
+	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 

@@ -1,7 +1,7 @@
 package com.leilao.leilaoSite.presentation.produto.dto;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,15 +14,15 @@ public class ProdutoDTO implements Serializable{
     private long id;
     private String nome;
     private boolean arrematado;
-    private Date dataArrematado;
-    private Date dataRegistro;
+    private LocalDateTime dataArrematado;
+    private LocalDateTime dataRegistro;
     private String username;
 
     public ProdutoDTO(){
 
     }
 
-    public ProdutoDTO(long id, String nome, boolean arrematado, Date dataArrematado, Date dataRegistro, String username) {
+    public ProdutoDTO(long id, String nome, boolean arrematado, LocalDateTime dataArrematado, LocalDateTime dataRegistro, String username) {
         this.id = id;
         this.nome = nome;
         this.arrematado = arrematado;
@@ -55,19 +55,19 @@ public class ProdutoDTO implements Serializable{
         this.arrematado = arrematado;
     }
 
-    public Date getDataArrematado() {
+    public LocalDateTime getDataArrematado() {
         return dataArrematado;
     }
 
-    public void setDataArrematado(Date dataArrematado) {
+    public void setDataArrematado(LocalDateTime dataArrematado) {
         this.dataArrematado = dataArrematado;
     }
 
-    public Date getDataRegistro() {
+    public LocalDateTime getDataRegistro() {
         return dataRegistro;
     }
 
-    public void setDataRegistro(Date dataRegistro) {
+    public void setDataRegistro(LocalDateTime dataRegistro) {
         this.dataRegistro = dataRegistro;
     }
 

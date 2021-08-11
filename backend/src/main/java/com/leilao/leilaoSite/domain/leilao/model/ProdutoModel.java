@@ -1,7 +1,7 @@
 package com.leilao.leilaoSite.domain.leilao.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,23 +28,23 @@ public class ProdutoModel implements Serializable{
     private boolean arrematado;
 
     @Column(name = "DATA_ARREMATADO")
-    private Date dataArrematado;
+    private LocalDateTime dataArrematado;
 
     @Column(name = "DATA_REGISTRO")
-    private Date dataRegistro;
+    private LocalDateTime dataRegistro;
 
     public ProdutoModel(ProdutoDTO produtoDTO) {
         this.nome = produtoDTO.getNome();
         this.arrematado = false;
         this.dataArrematado = null;
-        this.dataRegistro = new Date(System.currentTimeMillis());
+        this.dataRegistro = LocalDateTime.now();
     }
 
     public ProdutoModel(){
 
     }
 
-    public ProdutoModel(long id, String nome, boolean arrematado, Date dataArrematado, Date dataRegistro) {
+    public ProdutoModel(long id, String nome, boolean arrematado, LocalDateTime dataArrematado, LocalDateTime dataRegistro) {
         this.id = id;
         this.nome = nome;
         this.arrematado = arrematado;
@@ -76,19 +76,19 @@ public class ProdutoModel implements Serializable{
         this.arrematado = arrematado;
     }
 
-    public Date getDataArrematado() {
+    public LocalDateTime getDataArrematado() {
         return dataArrematado;
     }
 
-    public void setDataArrematado(Date dataArrematado) {
+    public void setDataArrematado(LocalDateTime dataArrematado) {
         this.dataArrematado = dataArrematado;
     }
 
-    public Date getDataRegistro() {
+    public LocalDateTime getDataRegistro() {
         return dataRegistro;
     }
 
-    public void setDataRegistro(Date dataRegistro) {
+    public void setDataRegistro(LocalDateTime dataRegistro) {
         this.dataRegistro = dataRegistro;
     }
 }

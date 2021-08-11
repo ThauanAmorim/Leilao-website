@@ -1,5 +1,6 @@
 package com.leilao.leilaoSite.presentation.user;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import com.leilao.leilaoSite.domain.leilao.model.EnderecoModel;
@@ -9,7 +10,7 @@ public class UserDTO {
     private String username;
     private String email;
     private String senha;
-    private Date dataNascimento;
+    private LocalDate dataNascimento;
     private EnderecoModel endereco;
     private String cpf;
 
@@ -37,10 +38,10 @@ public class UserDTO {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    public Date getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
     public EnderecoModel getEndereco() {
