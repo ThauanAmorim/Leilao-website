@@ -1,7 +1,7 @@
 package com.leilao.leilaoSite.domain.leilao.model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -24,11 +24,11 @@ public class LeilaoModel {
     @Column(name = "ID")
     private Long id;
     @Column(name = "DATA_REGISTRO")
-    private Date dataRegistro;
+    private LocalDateTime dataRegistro;
     @Column(name = "DATA_INICIO")
-    private Date dataInicio;
+    private LocalDateTime dataInicio;
     @Column(name = "DATA_TERMINO")
-    private Date dataTermino;
+    private LocalDateTime dataTermino;
     @Column(name = "VALOR_INICIAL")
     private float valorInicial;
     @Column(name = "VALOR_ATUAL")
@@ -47,11 +47,11 @@ public class LeilaoModel {
     private List<ProdutoModel> listaProdutos;
     
     public LeilaoModel() {
-        dataRegistro = new Date(System.currentTimeMillis());
+        dataRegistro = LocalDateTime.now();
     }
 
     public LeilaoModel(LeilaoDTO dto) {
-        this.dataRegistro = new Date(System.currentTimeMillis());
+        this.dataRegistro = LocalDateTime.now();
         this.dataInicio = dto.getDataInicio();
         this.dataTermino = dto.getDataTermino();
         this.descricao = dto.getDescricao();
@@ -59,7 +59,7 @@ public class LeilaoModel {
         this.valorMeta = dto.getValorMeta();
     }
 
-    public LeilaoModel(Long id, Date dataRegistro, Date dataInicio, Date dataTermino, float valorInicial,
+    public LeilaoModel(Long id, LocalDateTime dataRegistro, LocalDateTime dataInicio, LocalDateTime dataTermino, float valorInicial,
             float valorAtual, String usernameUltimoLance, float valorMeta, String descricao, CategoriaModel categoria,
             List<ProdutoModel> listaProdutos) {
         this.id = id;
@@ -83,19 +83,19 @@ public class LeilaoModel {
         this.id = id;
     }
 
-    public Date getDataRegistro() {
+    public LocalDateTime getDataRegistro() {
         return dataRegistro;
     }
 
-    public void setDataRegistro(Date dataRegistro) {
+    public void setDataRegistro(LocalDateTime dataRegistro) {
         this.dataRegistro = dataRegistro;
     }
 
-    public Date getDataInicio() {
+    public LocalDateTime getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(Date dataInicio) {
+    public void setDataInicio(LocalDateTime dataInicio) {
         this.dataInicio = dataInicio;
     }
 
@@ -107,11 +107,11 @@ public class LeilaoModel {
         this.valorInicial = valorInicial;
     }
 
-    public Date getDataTermino() {
+    public LocalDateTime getDataTermino() {
         return dataTermino;
     }
 
-    public void setDataTermino(Date dataTermino) {
+    public void setDataTermino(LocalDateTime dataTermino) {
         this.dataTermino = dataTermino;
     }
 

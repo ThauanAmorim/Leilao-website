@@ -1,6 +1,6 @@
 package com.leilao.leilaoSite.presentation.leilao;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class LeilaoDTO {
@@ -11,8 +11,8 @@ public class LeilaoDTO {
     private String usernameUltimoLance;
     private String descricao;
     private Long categoria;
-    private Date dataInicio;
-    private Date dataTermino;
+    private LocalDateTime dataInicio;
+    private LocalDateTime dataTermino;
     private List<Long> listaProdutos;
 
     public float getValorInicial() {
@@ -51,16 +51,16 @@ public class LeilaoDTO {
     public void setUsernameDono(String usernameDono) {
         this.usernameDono = usernameDono;
     }
-    public Date getDataInicio() {
+    public LocalDateTime getDataInicio() {
         return dataInicio;
     }
-    public void setDataInicio(Date dataInicio) {
+    public void setDataInicio(LocalDateTime dataInicio) {
         this.dataInicio = dataInicio;
     }
-    public Date getDataTermino() {
+    public LocalDateTime getDataTermino() {
         return dataTermino;
     }
-    public void setDataTermino(Date dataTermino) {
+    public void setDataTermino(LocalDateTime dataTermino) {
         this.dataTermino = dataTermino;
     }
     public float getValorAtual() {
