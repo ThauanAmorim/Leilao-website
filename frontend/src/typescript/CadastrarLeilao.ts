@@ -1,15 +1,109 @@
 const listaProdutosSelecionados = [];
+const listaIdsProdutos = [];
 
-document.getElementById("botao-Leiloar").addEventListener("click", () => {
+document.getElementById("botao-Leiloar").addEventListener("click", async () => {
     let descricao = document.getElementById("descricao");
     let valorInicial = document.getElementById("valorInicial");
     let valorMeta = document.getElementById("valorMeta");
     let horaInicio = document.getElementById("inputHComecar");
+    let datainicio = document.getElementById("inputDComecar");
     let horatermino = document.getElementById("inputHTerminar");
+    let dataTermino = document.getElementById("inputDTerminar");
     let categoria = document.getElementById("categoria");
 
-    console.log(horaInicio.value);
-    console.log();
+    if((valorInicial as HTMLInputElement).value === "") {
+        (valorInicial as HTMLInputElement).value = "0";
+    }
+
+    for (let index = 0; index < listaProdutosSelecionados.length; index++) {
+        listaIdsProdutos[index] = parseInt((listaProdutosSelecionados[index] as HTMLDivElement).className);
+        
+    }
+
+    //validador
+    let flag = true;
+    if((descricao as HTMLInputElement).value === "") {
+        descricao.style.border = "2px solid red";
+        flag = false;
+    } else {
+        descricao.style.border = null;
+
+    }
+    if((valorInicial as HTMLInputElement).value === "") {
+        valorInicial.style.border = "2px solid red";
+        flag = false;
+    } else {
+        valorInicial.style.border = null;
+
+    }
+    if((valorMeta as HTMLInputElement).value === "") {
+        valorMeta.style.border = "2px solid red";
+        flag = false;
+    } else {
+        valorMeta.style.border = null;
+
+    }
+    if((horaInicio as HTMLInputElement).value === "") {
+        horaInicio.style.border = "2px solid red";
+        flag = false;
+    } else {
+        horaInicio.style.border = null;
+
+    }
+    if((datainicio as HTMLInputElement).value === "") {
+        datainicio.style.border = "2px solid red";
+        flag = false;
+    } else {
+        datainicio.style.border = null;
+
+    }
+    if((horatermino as HTMLInputElement).value === "") {
+        horatermino.style.border = "2px solid red";
+        flag = false;
+    } else {
+        horatermino.style.border = null;
+
+    }
+    if((dataTermino as HTMLInputElement).value === "") {
+        dataTermino.style.border = "2px solid red";
+        flag = false;
+    } else {
+        dataTermino.style.border = null;
+
+    }
+    if(listaIdsProdutos.length === 0) {
+        document.getElementById("listaProdutos").style.border = "2px solid red";
+        flag = false;
+    } else {
+        document.getElementById("listaProdutos").style.border = null;
+
+    }
+
+    if(flag) {
+        const rawResponse = await fetch('http://localhost:8080/api/leilao', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          "Authorization": `Bearer ${window.localStorage.getItem("token")}`
+        },
+        body: JSON.stringify(
+            {
+                valorInicial: parseInt((valorInicial as HTMLInputElement).value),
+                valorMeta:  parseInt((valorMeta as HTMLInputElement).value),
+                descricao: (descricao as HTMLTextAreaElement).value,
+                categoria:  parseInt((categoria as HTMLSelectElement).value),
+                dataInicio: `${(datainicio as HTMLInputElement).value}T${(horaInicio as HTMLInputElement).value}`,
+                dataTermino: `${(dataTermino as HTMLInputElement).value}T${(horatermino as HTMLInputElement).value}`,
+                listaProdutos: listaIdsProdutos
+            }
+        )
+        });
+    
+        if (rawResponse.status == 201) {
+            window.location.href = "../pages/main.html";
+        }
+    }
 })
 
 async function listarCategorias () {
@@ -64,7 +158,7 @@ function renderizarProdutosLeilao(json : Promise<any>) {
                 break;
             }
             let elemento = dados[i++];
-            html += `<div id="produto" value=${elemento["id"]} style="border: 1px solid black; margin-top: 5pt;">
+            html += `<div id="produto" class="${elemento["id"]}" style="border: 1px solid black; margin-top: 5pt;">
             <option>${elemento["nome"]}</option>
             </div>`;
         }

@@ -1,5 +1,6 @@
 package com.leilao.leilaoSite.application.adesao.controller;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,10 +31,10 @@ public class LeilaoController {
     private LeilaoService leilaoService;
 
     @PostMapping
-    public ResponseEntity<?> salvar(@RequestBody LeilaoDTO dto) {
+    public ResponseEntity<?> salvar(@RequestBody LeilaoDTO dto, Principal principal) {
         try {
             LeilaoModel leilaoModel = new LeilaoModel(dto);
-            leilaoService.salvar(leilaoModel, dto.getListaProdutos(), dto.getCategoria(), dto.getUsernameDono());
+            leilaoService.salvar(leilaoModel, dto.getListaProdutos(), dto.getCategoria(), principal.getName());
             return ResponseEntity.status(HttpStatus.CREATED).body(null);
 
         } catch (DadosObrigatoriosFaltandoException | NaoEncontradoException e) {
