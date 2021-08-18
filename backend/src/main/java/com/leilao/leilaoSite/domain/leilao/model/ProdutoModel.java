@@ -27,6 +27,9 @@ public class ProdutoModel implements Serializable{
     @Column(name = "ARREMATADO")
     private boolean arrematado;
 
+    @Column(name = "LEILOADO")
+    private boolean leiloado = false;
+
     @Column(name = "DATA_ARREMATADO")
     private LocalDateTime dataArrematado;
 
@@ -44,12 +47,13 @@ public class ProdutoModel implements Serializable{
 
     }
 
-    public ProdutoModel(long id, String nome, boolean arrematado, LocalDateTime dataArrematado, LocalDateTime dataRegistro) {
+    public ProdutoModel(long id, String nome, boolean arrematado, LocalDateTime dataArrematado, LocalDateTime dataRegistro, boolean leiloado) {
         this.id = id;
         this.nome = nome;
         this.arrematado = arrematado;
         this.dataArrematado = dataArrematado;
         this.dataRegistro = dataRegistro;
+        this.leiloado = leiloado;
     }
 
     public long getId() {
@@ -90,5 +94,13 @@ public class ProdutoModel implements Serializable{
 
     public void setDataRegistro(LocalDateTime dataRegistro) {
         this.dataRegistro = dataRegistro;
+    }
+
+    public void setLeiloado(boolean estado) {
+        this.leiloado = estado;
+    }
+
+    public boolean isLeiloado() {
+        return this.leiloado;
     }
 }

@@ -52,15 +52,6 @@ function validarCamposEndereco() {
             element.style.border = null;
         }
     });
-    if (inputsListEndereco[4].value != inputsListEndereco[5].value) {
-        inputsListEndereco[4].style.border = "5px solid red";
-        inputsListEndereco[5].style.border = "5px solid red";
-        flag = true;
-    }
-    else {
-        inputsListEndereco[4].style.border = null;
-        inputsListEndereco[5].style.border = null;
-    }
     return flag;
 }
 function popularListaInputsEndereco() {

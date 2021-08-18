@@ -35,13 +35,14 @@ public class LeilaoService {
         leilaoModel.getDataTermino() == null ||
         categoriaId == 0) throw new DadosObrigatoriosFaltandoException();
 
-        // Optional<CategoriaModel> categoriaModel = categoriaRepository.findById(categoriaId);
-        // if(categoriaModel.get() == null) throw new NaoEncontradoException();
+        Optional<CategoriaModel> categoriaModel = categoriaRepository.findById(categoriaId);
+        if(categoriaModel.get() == null) throw new NaoEncontradoException();
 
-        // leilaoModel.setCategoria(categoriaModel.get());
+        leilaoModel.setCategoria(categoriaModel.get());
 
         for(Long i : listaDeIdsProdutos) {
             Optional<ProdutoModel> produto = produtoLeiloarRepository.findById(i);
+            produto.get().setLeiloado(true);
             if(produto.get() == null) throw new NaoEncontradoException();
             
             leilaoModel.addProduto(produto.get());

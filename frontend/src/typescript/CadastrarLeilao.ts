@@ -158,9 +158,12 @@ function renderizarProdutosLeilao(json : Promise<any>) {
                 break;
             }
             let elemento = dados[i++];
-            html += `<div id="produto" class="${elemento["id"]}" style="border: 1px solid black; margin-top: 5pt;">
-            <option>${elemento["nome"]}</option>
-            </div>`;
+            if(elemento["leiloado"] == false) {
+                html += `<div id="produto" class="${elemento["id"]}" style="border: 1px solid black; margin-top: 5pt;">
+                <option>${elemento["nome"]}</option>
+                </div>`;
+
+            }
         }
         listaProdutosDiv.innerHTML = html;
         addListenerProduto(listaProdutosDiv.querySelectorAll('[id=produto]'));
