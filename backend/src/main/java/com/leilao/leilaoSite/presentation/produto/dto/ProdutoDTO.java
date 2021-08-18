@@ -17,18 +17,20 @@ public class ProdutoDTO implements Serializable{
     private LocalDateTime dataArrematado;
     private LocalDateTime dataRegistro;
     private String username;
+    private String imagem;
 
     public ProdutoDTO(){
 
     }
 
-    public ProdutoDTO(long id, String nome, boolean arrematado, LocalDateTime dataArrematado, LocalDateTime dataRegistro, String username) {
+    public ProdutoDTO(long id, String nome, boolean arrematado, LocalDateTime dataArrematado, LocalDateTime dataRegistro, String username, String imagem) {
         this.id = id;
         this.nome = nome;
         this.arrematado = arrematado;
         this.dataArrematado = dataArrematado;
         this.dataRegistro = dataRegistro;
         this.username = username;
+        this.imagem = imagem;
     }
 
     public long getId() {
@@ -77,6 +79,14 @@ public class ProdutoDTO implements Serializable{
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
     
 }

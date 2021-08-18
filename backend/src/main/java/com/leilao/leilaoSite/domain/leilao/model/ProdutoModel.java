@@ -36,24 +36,29 @@ public class ProdutoModel implements Serializable{
     @Column(name = "DATA_REGISTRO")
     private LocalDateTime dataRegistro;
 
+    @Column(name = "IMAGEM", columnDefinition="TEXT")
+    private String imagem;
+
     public ProdutoModel(ProdutoDTO produtoDTO) {
         this.nome = produtoDTO.getNome();
         this.arrematado = false;
         this.dataArrematado = null;
         this.dataRegistro = LocalDateTime.now();
+        this.imagem = produtoDTO.getImagem();
     }
 
     public ProdutoModel(){
 
     }
 
-    public ProdutoModel(long id, String nome, boolean arrematado, LocalDateTime dataArrematado, LocalDateTime dataRegistro, boolean leiloado) {
+    public ProdutoModel(long id, String nome, boolean arrematado, LocalDateTime dataArrematado, LocalDateTime dataRegistro, boolean leiloado, String imagem) {
         this.id = id;
         this.nome = nome;
         this.arrematado = arrematado;
         this.dataArrematado = dataArrematado;
         this.dataRegistro = dataRegistro;
         this.leiloado = leiloado;
+        this.imagem = imagem;
     }
 
     public long getId() {
@@ -102,5 +107,13 @@ public class ProdutoModel implements Serializable{
 
     public boolean isLeiloado() {
         return this.leiloado;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
+
+    public String getImagem() {
+        return imagem;
     }
 }
