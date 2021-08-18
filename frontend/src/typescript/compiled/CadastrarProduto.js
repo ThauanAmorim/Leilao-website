@@ -1,9 +1,18 @@
+// document.getElementById("imagem").innerHTML =`<img style='display:block; width:100px;height:100px;' id='base64image'
+// src='${imageBase64}' />`;
 const enviarProduto = document.getElementById("botao-enviar");
 const inputsListProdutos = [];
 enviarProduto.addEventListener('click', cadastrarProduto);
 async function cadastrarProduto() {
     if (validarCamposProdutos())
         return;
+    let file = document.getElementById("input-imagem").files[0];
+    let imageBase64 = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+    });
     const rawResponse = await fetch('http://localhost:8080/api/produtos-leiloar', {
         method: 'POST',
         headers: {
@@ -12,7 +21,8 @@ async function cadastrarProduto() {
             "Authorization": `Bearer ${window.localStorage.getItem("token")}`
         },
         body: JSON.stringify({
-            nome: inputsListProdutos[0].value
+            nome: inputsListProdutos[0].value,
+            imagem: imageBase64
         })
     });
     if (rawResponse.ok) {
