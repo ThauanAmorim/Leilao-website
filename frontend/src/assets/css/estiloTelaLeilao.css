@@ -9,30 +9,33 @@ body {
 
 .corpo {
     width: 50%;
-    height: 600px;
+    height: 80vh;
     margin: auto;
     margin-top: 5%;
     border-radius: 40px;
     box-shadow: 0px 10px 15px #255c72;
     background-color: rgba(196, 236, 244, 0.9);
-    background-blend-mode: normal;
-    mix-blend-mode: luminosity;
 }
 
-.titulo{
+.titulo {
     text-align: center;
-    color:rgba(3, 124, 180, 0.9)
+    color: rgba(3, 124, 180, 0.9)
 }
 
-#idDoLeilao, #idDoProduto, #nomeDoProduto, #DescricaoDoLeilao, #valorUltimoLance, #NomeDoUltimo, #valorDoLance{
+#idDoLeilao,
+#idDoProduto,
+#nomeDoProduto,
+#DescricaoDoLeilao,
+#valorUltimoLance,
+#NomeDoUltimo,
+#valorDoLance {
     width: 45%;
-    height: 30px;
-
+    height: 5vh;
     display: inline-block;
-    margin-top: 4%;
+    margin-top: 3vh;
     margin-left: 25%;
     text-align: center;
-    color:rgba(3, 124, 180, 0.9);
+    color: rgba(3, 124, 180, 0.9);
 }
 
 #botaoLance {
