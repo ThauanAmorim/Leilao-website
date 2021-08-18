@@ -23,44 +23,45 @@ body {
     display: flex;
 }
 
+
 /* menu */
-.headerMenu{
+
+.headerMenu {
     position: relative;
     height: 100px;
     width: 100%;
 }
 
-.headerMenu li{
-    
+.headerMenu li {
     list-style: none;
 }
 
-.headerMenu li ul{
+.headerMenu li ul {
     margin-left: 45%;
     vertical-align: middle;
 }
 
-.headerMenu li ul li{
-    justify-content: center; /* alinha horizontalmente */
+.headerMenu li ul li {
+    justify-content: center;
+    /* alinha horizontalmente */
     align-items: center;
 }
 
-.headerMenu li:hover ul li{
+.headerMenu li:hover ul li {
     visibility: visible;
     display: block;
 }
 
-.headerMenu li ul li{
+.headerMenu li ul li {
     float: left;
     margin: 3%;
     visibility: hidden;
 }
 
-.headerMenu li ul li a{
+.headerMenu li ul li a {
     text-decoration: none;
-    color:rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.9);
 }
-
 
 .botao-login {
     width: 12%;
@@ -83,7 +84,6 @@ body {
     float: left;
     display: flexbox;
     background: rgb(136, 207, 252);
-    mix-blend-mode: luminosity;
     border-radius: 50px;
 }
 
@@ -125,7 +125,6 @@ body {
     font-size: 3vh;
     padding-top: 5%;
     background: #E7E7E7;
-    mix-blend-mode: luminosity;
     border-radius: 10px;
     text-decoration: none;
 }
@@ -140,7 +139,6 @@ body {
     display: block;
     overflow-y: auto;
     background: rgba(136, 208, 252, 0.781);
-    mix-blend-mode: luminosity;
     border-radius: 50px;
 }
 
@@ -157,17 +155,6 @@ body {
     margin-top: 5%;
     border-radius: 10px;
     background-color: rgb(136, 208, 252);
-}
-
-.imagens {
-    width: 80%;
-    height: 20vh;
-    float: left;
-    margin: 2%;
-    margin-left: 10%;
-    margin-top: 5%;
-    border-radius: 10px;
-    background-color: rgb(1, 24, 29);
 }
 
 

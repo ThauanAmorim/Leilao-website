@@ -26,7 +26,7 @@ function addListener(lista : NodeListOf<Element>) {
     });
 
     element.addEventListener("click", () => {
-      window.localStorage.setItem("produto", element.getElementsByClassName("id").item(0).textContent);
+      window.localStorage.setItem("produto", (element as HTMLInputElement).value);
       window.location.href = "../pages/telaLeilao.html";
     });
   });
@@ -42,14 +42,15 @@ function renderizarProdutos(json : Promise<any>) {
         break;
       }
       let elemento = dados[i++];
-      console.log(elemento);
-      html += `<div class="item_catalogo" id="item_catalogo">
-      <div id="imagens" class="imagens"></div>
-      <label id="id" class="id" for="">${elemento["id"]}</label>
-      <label id="data_inicio" for="">${elemento["dataInicio"]}</label>
-      <label id="valor_atual" for="">${elemento["valorAtual"]}</label>
-      <label id="valor_inicial" for="">${elemento["valorInicial"]}</label>
-      <label id="nome_ultimo_lance" for="">${elemento["usernameUltimoLance"]}</label>
+      let usernameUltimoLance = "";
+      if(elemento["usernameUltimoLance"] != null) {
+        usernameUltimoLance = elemento["usernameUltimoLance"];
+      }
+      html += `<div class="item_catalogo" id="item_catalogo" value=${elemento["id"]}>
+      <img style='display: block; margin-left: 2vw; margin-top: 1vh; border-radius: 10px; max-width: 80%;' height=200vh id='base64image' src='${elemento["listaProdutos"][0]["imagem"]}' />
+      <label style='margin: auto;'id="data_inicio" for="">Data: ${elemento["dataInicio"]}</label>
+      <label id="valor_atual" for="">Valor Atual: ${elemento["valorAtual"]}</label>
+      <label id="nome_ultimo_lance" for="">${usernameUltimoLance}</label>
       </div>`;
     }
     catalogo.innerHTML = html;

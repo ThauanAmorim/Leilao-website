@@ -1,5 +1,4 @@
-// document.getElementById("imagem").innerHTML =`<img style='display:block; width:100px;height:100px;' id='base64image'
-// src='${imageBase64}' />`;
+// document.getElementById("imagem").innerHTML =``;
 const enviarProduto = document.getElementById("botao-enviar");
 const inputsListProdutos = [];
 enviarProduto.addEventListener('click', cadastrarProduto);
