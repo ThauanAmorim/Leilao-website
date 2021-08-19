@@ -52,12 +52,16 @@ public class LeilaoService {
         return userRepository.save(user);
     }
 
-    public LeilaoModel get(Long id) throws NaoEncontradoException {
-        LeilaoModel leilao = leilaoRepository.getById(id);
+    public LeilaoModel salvar(LeilaoModel leilaoModel) {
+        return leilaoRepository.save(leilaoModel);
+    }
 
-        if(leilao == null) throw new NaoEncontradoException();
+    public LeilaoModel get(Long id) throws NaoEncontradoException {
+        Optional<LeilaoModel> leilao = leilaoRepository.findById(id);
+
+        if(leilao.get() == null) throw new NaoEncontradoException();
         
-        return leilao;
+        return leilao.get();
     }
 
     public List<LeilaoModel> get() throws NaoEncontradoException {

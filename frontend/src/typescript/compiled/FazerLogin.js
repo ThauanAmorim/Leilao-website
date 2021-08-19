@@ -17,6 +17,7 @@ async function logar() {
         document.getElementById("passwordInput").style.border = null;
         const content = await rawResponse.json();
         window.localStorage.setItem("token", content["response"]);
+        window.localStorage.setItem("username", document.getElementById("usernameInput").value);
         window.location.href = "../pages/main.html";
     }
     else if (rawResponse.status == 400) {

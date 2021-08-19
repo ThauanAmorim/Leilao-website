@@ -21,7 +21,7 @@ function addListener(lista) {
             element.style.border = null;
         });
         element.addEventListener("click", () => {
-            window.localStorage.setItem("produto", element.value);
+            window.localStorage.setItem("produto", element.attributes.getNamedItem("value").value);
             window.location.href = "../pages/telaLeilao.html";
         });
     });

@@ -43,6 +43,16 @@ public class LeilaoController {
         }
     }
 
+    @PostMapping("/update")
+    public ResponseEntity<?> updateModel(@RequestBody LeilaoModel model) {
+        try {
+            leilaoService.salvar(model);
+            return ResponseEntity.status(HttpStatus.OK).body(null);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
     @GetMapping
     public ResponseEntity<?> getAll() {
         try {
@@ -62,5 +72,15 @@ public class LeilaoController {
         } catch (NaoEncontradoException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getById(@PathVariable("id") Long id) {
+        try {
+            LeilaoModel leilao = leilaoService.get(id);
+            return ResponseEntity.status(HttpStatus.OK).body(leilao);
+        } catch (NaoEncontradoException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        } 
     }
 }
