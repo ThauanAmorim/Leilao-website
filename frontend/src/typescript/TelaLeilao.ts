@@ -54,7 +54,6 @@ async function renderizarLeilao() {
         <label for="" id="DescricaoDoLeilao">${json["descricao"]}</label>
         <label for="" id="valorUltimoLance">R$${json["valorAtual"]}</label>
         <label for="" id="NomeDoUltimo">${nomeUltimoLance}</label>`;
-        console.log(json);
     }
 }
 
@@ -79,4 +78,9 @@ async function renderizarLeilaoJson() {
     <label for="" id="NomeDoUltimo">${nomeUltimoLance}</label>`;
 }
 
+function atualizador() {
+    renderizarLeilao();
+    setTimeout( atualizador, 1000 );
+}
 renderizarLeilao();
+atualizador();
