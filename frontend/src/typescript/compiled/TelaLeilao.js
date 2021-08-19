@@ -1,18 +1,24 @@
 let json = null;
 document.getElementById("botaoLance").addEventListener("click", async () => {
     let valor = document.getElementById("valorDoLance").value;
-    json["valorAtual"] = parseFloat(valor);
-    json["usernameUltimoLance"] = window.localStorage.getItem("username");
-    renderizarLeilaoJson();
-    const rawResponse = await fetch('http://localhost:8080/api/leilao/update', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            "Authorization": `Bearer ${window.localStorage.getItem("token")}`
-        },
-        body: JSON.stringify(json)
-    });
+    if (json["valorAtual"] < parseFloat(valor)) {
+        document.getElementById("valorDoLance").style.border = null;
+        json["valorAtual"] = parseFloat(valor);
+        json["usernameUltimoLance"] = window.localStorage.getItem("username");
+        renderizarLeilaoJson();
+        const rawResponse = await fetch('http://localhost:8080/api/leilao/update', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                "Authorization": `Bearer ${window.localStorage.getItem("token")}`
+            },
+            body: JSON.stringify(json)
+        });
+    }
+    else {
+        document.getElementById("valorDoLance").style.border = "2px solid red";
+    }
 });
 async function renderizarLeilao() {
     const rawResponse = await fetch(`http://localhost:8080/api/leilao/${window.localStorage.getItem("produto")}`, {
