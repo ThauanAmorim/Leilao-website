@@ -107,6 +107,11 @@ function listenerMenuPrincipal() {
   document.getElementById("hmLeilao").addEventListener("click", () => {
     window.location.href = "../pages/PaginaCadastrarProdutoLeiloar.html";
   });
+  document.getElementById("hmLogout").addEventListener("click", () => {
+    window.localStorage.setItem("token", null);
+    window.localStorage.setItem("username", null);
+    window.location.href = "../pages/login.html";
+  });
 }
 
 function addListenerCategoria(lista : NodeListOf<Element>) {

@@ -5,6 +5,11 @@ const botaoNaoTenhoConta = document.getElementById("botao-nao-tenho-conta");
 botaoNaoTenhoConta.addEventListener('click', irTelaCadastro);
 botaoLogin.addEventListener('click', logar);
 
+function validadorToken() {
+  if(window.localStorage.getItem("token") !== 'null') {
+    window.location.href = "../pages/main.html";
+  }
+}
 
 async function logar () {
     const rawResponse = await fetch('http://localhost:8080/api/login', {
@@ -36,3 +41,5 @@ async function logar () {
 async function irTelaCadastro () {
  window.location.href = "../pages/Cadastrar.html";
 }
+
+validadorToken();
