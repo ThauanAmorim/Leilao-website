@@ -19,5 +19,8 @@
   "homepage": "https://github.com/0JAFC0/LeilaoSite#readme",
   "devDependencies": {
     "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "moment": "^2.29.1"
   }
 }

@@ -50,9 +50,9 @@ function renderizarProdutos(json, categoria) {
             if (flag) {
                 html += `<div class="item_catalogo" id="item_catalogo" value=${elemento["id"]}>
         <img style='display: block; margin-left: 2vw; margin-top: 1vh; border-radius: 10px; max-width: 80%;' height=200vh id='base64image' src='${elemento["listaProdutos"][0]["imagem"]}' />
-        <label style='margin: auto;'id="data_inicio" for="">Data: ${elemento["dataInicio"]}</label>
-        <label id="valor_atual" for="">Valor Atual: ${elemento["valorAtual"]}</label>
-        <label id="nome_ultimo_lance" for="">${usernameUltimoLance}</label>
+        <label style='margin-left: 1vw;' id="data_inicio" for="">Termino: ${elemento["dataTermino"].replaceAll("-", "/").replace("T", " ").slice(0, 16)}</label></br>
+        <label style='margin-left: 1vw;' id="valor_atual" for="">Valor Atual: ${elemento["valorAtual"]}</label></br>
+        <label style='margin-left: 1vw;' id="nome_ultimo_lance" for="">Lance: ${usernameUltimoLance}</label>
         </div>`;
             }
         }
