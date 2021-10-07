@@ -8,7 +8,7 @@ import com.leilao.leilaoSite.application.adesao.service.LeilaoService;
 import com.leilao.leilaoSite.domain.leilao.model.LeilaoModel;
 import com.leilao.leilaoSite.infrastructure.exceptions.DadosObrigatoriosFaltandoException;
 import com.leilao.leilaoSite.infrastructure.exceptions.NaoEncontradoException;
-import com.leilao.leilaoSite.presentation.leilao.LeilaoDTO;
+import com.leilao.leilaoSite.presentation.Leilao.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

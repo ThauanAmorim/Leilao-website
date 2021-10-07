@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.leilao.leilaoSite.presentation.leilao.LeilaoDTO;
+import com.leilao.leilaoSite.presentation.Leilao.*;
 
 @Entity
 @Table(name = "TB_LEILAO")
